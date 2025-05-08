@@ -1,0 +1,130 @@
+---
+
+---
+
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="/"> Byhaven </a>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <div class="menu" id="menu">
+      <ul>
+        <li><a href="/musik">Musik</a></li>
+        <li><a href="/mad">Mad</a></li>
+        <li><a href="/bar">Bar</a></li>
+        <li><a href="/omos">Om os</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const burger = document.getElementById("burger");
+    const menu = document.getElementById("menu");
+
+    burger.addEventListener("click", () => {
+      menu.classList.toggle("active");
+      burger.classList.toggle("open");
+    });
+  });
+</script>
+
+<style>
+  .header {
+    padding: 2rem;
+    background: transparent;
+  }
+
+  .nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    font-family: sans-serif;
+    font-weight: bold;
+  }
+
+  .logo {
+    display: none;
+    align-items: center;
+  }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  .burger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    transition: 0.3s;
+  }
+
+  .burger.open .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+  .burger.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    gap: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .logo {
+      display: block;
+    }
+
+    .burger {
+      display: flex;
+    }
+
+    .menu {
+      display: none;
+      flex-direction: column;
+      background: white;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      font-family: sans-serif;
+      font-weight: bold;
+    }
+  }
+</style>
