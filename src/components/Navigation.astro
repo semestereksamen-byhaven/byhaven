@@ -39,34 +39,33 @@
 
 <style>
   .header {
-    padding: 2rem;
-    background: transparent;
+    background-color: #f5f5f5;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #ccc;
   }
 
   .nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    font-family: sans-serif;
+    font-family: "Helvetica Neue", sans-serif;
     font-weight: bold;
   }
 
-  .logo {
-    display: none;
-    align-items: center;
+  .logo a {
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: black;
   }
 
   .burger {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 5px;
-    cursor: pointer;
     background: none;
     border: none;
+    cursor: pointer;
   }
 
   .burger .bar {
@@ -87,44 +86,64 @@
   }
 
   .menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex: 1;
-    gap: 1rem;
+    display: none;
+    flex-direction: column;
+    background: #f5f5f5;
+    width: 100%;
+    padding-top: 1rem;
   }
 
-  @media (max-width: 768px) {
-    .logo {
-      display: block;
-    }
+  .menu.active {
+    display: flex;
+  }
 
+  .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  @media (min-width: 600px) {
     .burger {
-      display: flex;
+      display: none;
     }
 
     .menu {
-      display: none;
-      flex-direction: column;
-      background: white;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      right: 0;
-      padding: 1rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      z-index: 10;
+      display: flex !important;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      background: transparent;
+      padding: 0;
     }
+
+    .menu ul {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    .menu ul li a {
+      font-size: 0.9rem;
+    }
+
+    .header {
+      padding: 1.5rem 2rem;
+    }
+
     .nav {
       max-width: 1200px;
       margin: 0 auto;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      font-family: sans-serif;
-      font-weight: bold;
     }
   }
 </style>
