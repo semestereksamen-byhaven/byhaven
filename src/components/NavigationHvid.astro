@@ -1,0 +1,149 @@
+---
+
+---
+
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="/"> Byhaven </a>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <div class="menu" id="menu">
+      <ul>
+        <li><a href="/musik">Musik</a></li>
+        <li><a href="/mad">Mad</a></li>
+        <li><a href="/bar">Bar</a></li>
+        <li><a href="/omos">Om os</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const burger = document.getElementById("burger");
+    const menu = document.getElementById("menu");
+
+    burger.addEventListener("click", () => {
+      menu.classList.toggle("active");
+      burger.classList.toggle("open");
+    });
+  });
+</script>
+
+<style>
+  .header {
+    background-color: #f5f5f5;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: bold;
+  }
+
+  .logo a {
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: white;
+  }
+
+  .burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .burger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    transition: 0.3s;
+  }
+
+  .burger.open .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+  .burger.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    background: #f5f5f5;
+    width: 100%;
+    padding-top: 1rem;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  @media (min-width: 600px) {
+    .burger {
+      display: none;
+    }
+
+    .menu {
+      display: flex !important;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      background: transparent;
+      padding: 0;
+    }
+
+    .menu ul {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    .menu ul li a {
+      font-size: 0.9rem;
+    }
+
+    .header {
+      padding: 1.5rem 2rem;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+</style>
