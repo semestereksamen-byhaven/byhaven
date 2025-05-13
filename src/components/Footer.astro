@@ -1,0 +1,81 @@
+---
+
+---
+
+<div class="footer">
+  <h2 class="logo">Byhaven</h2>
+  <div>
+    <div>
+      <h3>ÅBNINGSTIDER</h3>
+      <p>Byhaven åbner igen den 25. april</p>
+      <p>Byhaven åbner kl. 15.00 og koncerterne starter kl. 19.00.</p>
+    </div>
+    <div class="icons">
+      <h3>FØLG MED HER</h3>
+      <a class="instagram" href="https://www.instagram.com/byhavencopenhagen"><img src="/public/instagram.svg" alt="Instagram" /></a>
+      <a class="facebook" href="https://www.facebook.com/byhavenpumpehuset"><img src="/public/facebook.svg" alt="Facebook" /></a>
+      <a class="tiktok" href="https://www.tiktok.com/@byhavencopenhagen?_t=ZN-8wJgjcTP2Mo&_r=1"><img src="/public/tiktok.svg" alt="TikTok" /></a>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h3>ADRESSE</h3>
+      <p>Studiestræde 52</p>
+      <p>1554 København V</p>
+    </div>
+    <div>
+      <h3>KONTAKT</h3>
+      <p>info@pumpehuset.dk</p>
+    </div>
+  </div>
+  <div class="logos">
+    <img class="killerkebab" src="/public/killerkebab.svg" alt="killerkebab" />
+    <img class="brooklyn" src="/public/brooklyn.svg" alt="brooklyn" />
+  </div>
+</div>
+
+<style>
+  .footer {
+    background-color: #d6d2ca;
+    color: #000;
+    padding: 20px;
+  }
+
+  /* .logos {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    position: absolute;
+    left: 18.5rem;
+    top: 18rem;
+  } */
+  .logos img {
+    width: 60px;
+    height: auto;
+  }
+  .icons img {
+    width: 26px;
+    height: auto;
+  }
+
+  @media (min-width: 600px) {
+    .footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+    .logos {
+      grid-column: 4/5;
+      grid-row: 1;
+    }
+
+    .icons img {
+      width: 30px;
+      height: auto;
+    }
+    .logos img {
+      width: 80px;
+      height: auto;
+    }
+  }
+</style>
