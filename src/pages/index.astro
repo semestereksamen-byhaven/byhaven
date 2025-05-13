@@ -1,7 +1,6 @@
 ---
 //@ts-nocheck
 import Forside from "../layouts/Layout.astro";
-import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
 import MusikCard from "../components/MusikCard.astro";
@@ -13,7 +12,11 @@ import Knap from "../components/Knap.astro";
   <HeroSection />
   <MusikCard />
   <ForsideInfo />
-  <ForsideInfo />
-  <Knap />
+  <section>
+    <Knap text="Se events" href="/musik" variant="default" />
+    <Knap text="Om os" href="/omos" variant="default" />
+    <Knap text="Se mad" href="/mad" variant="default" />
+    <Knap text="Se bar" href="/bar" variant="default" />
+  </section>
   <Footer />
 </Forside>
