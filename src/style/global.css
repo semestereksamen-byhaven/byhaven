@@ -11,7 +11,11 @@
   --green: #235621;
   --red: #a01621;
 }
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 /* fonts  */
 logo {
   color: var(--white);
@@ -36,4 +40,26 @@ p {
   font-family: "Work Sans", sans-serif;
   color: var(--black);
   font-weight: 200;
+  font-size: 17px;
+  line-height: 1.6rem;
+}
+
+h5 {
+  font-family: "Work Sans", sans-serif;
+  color: var(--black);
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  font-family: "Work Sans", sans-serif;
+  color: var(--black);
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 1.6rem;
+}
+
+body {
+  background-color: var(--background);
 }

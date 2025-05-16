@@ -11,23 +11,56 @@ import H2 from "../components/H2.astro";
 
 <ForsideLayout>
   <HeroSection />
-  <H2 />
-  <H2 title="KOMMENDE EVENTS " />
-
-  <H2 />
-  <H2 title="OM OS" />
-
-  <H2 />
-  <H2 title="MAD OG BAR" />
-  <MusikCard />
-  <ForsideInfo />
-
-  <Knap />
-
-  <section>
+  <div class="events">
+    <H2 title="KOMMENDE EVENTS " />
     <Knap text="Se events" href="/musik" variant="default" />
-    <Knap text="Om os" href="/omos" variant="default" />
-    <Knap text="Se mad" href="/mad" variant="default" />
-    <Knap text="Se bar" href="/bar" variant="default" />
-  </section>
+  </div>
+
+  <MusikCard />
+
+  <ForsideInfo>
+    <div class="billede">
+      <h2>OM OS</h2>
+      <img src="omos.webp" alt="omos" />
+    </div>
+    <div class="tekst">
+      <h5>En oase i hjertet af København</h5>
+      <p>Byhaven er en oase i hjertet af det travle København. Hver sommer genåbner vi Byhaven fra april-september. Her kan du nyde Byhaven fra 15 til sent - og der er altid fri entré.</p><br />
+      <p>Vi sætter en dyd i at dykke ned i musikundergrunden og finde netop den musik, vi synes bør være soundtracket til din sommer.</p>
+      <div class="knap_margin">
+        <Knap text="Om os" href="/omos" variant="default" />
+      </div>
+    </div>
+  </ForsideInfo>
+
+  <ForsideInfo reverse>
+    <div class="billede">
+      <img class="billede" src="brooklyn.webp" alt="brooklyn" />
+    </div>
+    <div class="tekst">
+      <h2 class="madogbar">MAD OG BAR</h2>
+      <h5>Alt det ganen begærer</h5>
+      <p>I år løfter vi madoplevelsen i Byhaven – Killer Kebab rykker ind og serverer sprøde, saftige og smagfulde favoritter hele sæsonen! Glæd jer til streetfood-stemning og masser af god energi!</p><br />
+      <p>Baren i Byhaven er spækket med alt det lækre, som ganen begærer. Brooklyn Brewery har fyldt hanerne og køleskabene med lækre øl, så om du er til IPA, pilsnere eller sour, har Brooklyn din ryg - også hvis det skal være alkoholfrit.</p>
+      <div class="knap_margin">
+        <Knap text="Se mad" href="/mad" variant="default" />
+        <Knap text="Se bar" href="/bar" variant="default" />
+      </div>
+    </div>
+  </ForsideInfo>
 </ForsideLayout>
+
+<style>
+  .knap_margin {
+    margin-top: 2rem;
+  }
+  .tekst {
+    padding-right: 10rem;
+  }
+  .infoboks {
+    position: relative;
+  }
+
+  @media (max-width: 600px) {
+  }
+</style>

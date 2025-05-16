@@ -1,0 +1,67 @@
+---
+
+---
+
+<div class="event-card">
+  <img src="/konvent.png" alt="Konvent koncert" class="event-image" />
+  <div class="event-content">
+    <h2 class="event-title">Konvent</h2>
+    <div class="event-genre">Metal</div>
+    <div class="event-info">
+      <span>2. maj 2025</span>
+      <span>Kl 19:00</span>
+    </div>
+    <button class="event-button">Se mere</button>
+  </div>
+</div>
+
+<style>
+  .event-card {
+    background-color: white;
+    width: 320px;
+    overflow: hidden;
+  }
+
+  .event-image {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  .event-title {
+    margin: 8px 0;
+    font-size: 1.4em;
+    font-weight: bold;
+  }
+
+  .event-genre {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: black;
+    font-size: 0.9em;
+    padding: 5px 15px;
+    margin-bottom: 12px;
+    width: fit-content;
+  }
+
+  .event-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 1em;
+  }
+
+  .event-button {
+    padding: 6px 12px;
+    border: 1px solid black;
+    background: none;
+    cursor: pointer;
+    width: fit-content;
+    align-self: flex-end;
+  }
+  .event-content {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
