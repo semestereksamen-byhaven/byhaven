@@ -1,0 +1,28 @@
+---
+const { title, reverse = false } = Astro.props;
+---
+
+<div class="infoboks">
+  <div class={`info ${reverse ? "reverse" : ""}`}>
+    <slot />
+  </div>
+</div>
+
+<style>
+  @media (min-width: 600px) {
+    .info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      margin-bottom: 6rem;
+    }
+    .info.reverse {
+      direction: rtl;
+      text-align: left;
+    }
+
+    .info.reverse > * {
+      direction: ltr;
+    }
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import NavigationHvid from "../components/NavigationHvid.astro";
 import Footer from "../components/Footer.astro";
+import "../style/global.css";
 ---
 
 <!doctype html>
@@ -10,18 +11,37 @@ import Footer from "../components/Footer.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <title>Byhaven</title>
   </head>
-  <header>
-    <NavigationHvid />
-  </header>
+
   <body>
-    <slot />
+    <header>
+      <NavigationHvid />
+    </header>
+
+    <div class="slot_container">
+      <slot />
+    </div>
+
+    <footer>
+      <Footer />
+    </footer>
   </body>
 
-  <footer>
-    <Footer />
-  </footer>
-
-
+  <style>
+    @media (min-width: 600px) {
+      .slot_container {
+        margin: 4rem;
+      }
+    }
+  </style>
 </html>
