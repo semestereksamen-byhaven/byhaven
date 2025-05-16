@@ -2,14 +2,31 @@
 const { text = "Klik her", href = "#", variant = "default" } = Astro.props;
 ---
 
-<a href={href} class={`knap ${variant}`}>{text}</a>
+{
+  href ? (
+    <a href={href} class={`knap ${variant}`}>
+      {text}
+    </a>
+  ) : (
+    <button type="button" class={`knap ${variant}`}>
+      {text}
+    </button>
+  )
+}
 
 <style>
   .knap {
     display: inline-block;
+
     background-color: white;
     color: #000000;
     padding: 0.2em 2em;
+
+    background-color: var(--white);
+    color: var(--black);
+    padding: 0.8em 1.5em;
+    border: 1px solid black;
+    
     text-decoration: none;
     font-family: "tuffy", sans-serif;
     font-size: 1.3rem;
