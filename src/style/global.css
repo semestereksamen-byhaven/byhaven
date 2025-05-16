@@ -1,21 +1,22 @@
 /* colors */
 :root {
   --background: #efefef;
-  --light_blue: #74a7ee;
+  --light_blue: #8ba3c5;
   --dark_blue: #12305c;
   --white: #ffffff;
   --black: #000000;
   --overskrift: #42474b;
   --footer: #d6d2ca;
-  --yellow: #ffcf62;
-  --green: #235621;
-  --red: #a01621;
+  --yellow: #c99b3f;
+  --green: #305a2f;
+  --red: #b95a60;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 /* fonts  */
 logo {
   color: var(--white);
@@ -25,8 +26,10 @@ logo {
 h1 {
   font-family: "Raleway", sans-serif;
   color: var(--overskrift);
-  font-size: 3.6rem;
-  font-weight: 400;
+  font-size: 2.7rem;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 2.5rem;
 }
 
 h2 {
@@ -41,7 +44,8 @@ p {
   color: var(--black);
   font-weight: 200;
   font-size: 17px;
-  line-height: 1.6rem;
+  line-height: 1.8rem;
+  padding-bottom: 1rem;
 }
 
 h5 {
