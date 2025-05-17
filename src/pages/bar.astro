@@ -3,6 +3,208 @@ import Layout from "../layouts/Layout.astro";
 import Headline from "../components/Headline.astro";
 ---
 
-<Layout />
+<Layout>
 <Headline />
 <Headline title="BAREN I BYHAVEN" />
+
+<div class="custom-blue-box"></div>
+
+<div class="intro">
+<p>Baren i Byhaven er spækket med alt det lækre, som ganen begærer.  Vores venner fra Brooklyn Brewery har fyldt hanerne og køleskabene med  lækre øl, så om du er til IPA, pilsnere eller sour, har Brooklyn din ryg - også hvis det skal være alkoholfrit.</p>
+<div class="image-wrapper">
+<img src="/bar.webp" alt="Bar">
+</div>
+</div>
+
+<div class="blue-box-wrapper">
+    <div class="blue-box"></div>
+    </div>
+
+    <div class="text-content">
+        <p>Vi elsker i øvrigt vin, og har en masser hamrende lækre naturvine og  lidt traditionelle vine klar til dig. Hvis du vil på vineventyr, så  spørg efter vores fulde vinkort i baren. Forfriskende cocktails, masser  af delikat spiritus og læskende drikkevarer uden alkohol har vi  selvfølgelig også.</p>
+    </div>
+
+
+<div class="wrapper">
+<div class="menu">
+    <h3>Drinks</h3>
+    <section>
+    <h4>Cocktails & RTD</h4>
+    <ul>
+        <li>Tom Passion <span class="pris">78,-</span></li>
+        <li>Mojito Flower <span class="pris">78,-</span></li>
+        <li>Rhubarb Crush <span class="pris">80,-</span></li>
+        <li>Grapefruit Spritzer <span class="pris">80,-</span></li>
+        <li>Bacardi Breezer <span class="pris">50,-</span></li>
+    </ul>
+    </section>
+
+    <section>
+    <h4>Long Drinks</h4>
+    <ul>
+        <li>Paloma <span class="pris">80,-</span></li>
+        <li>Vodka Mate <span class="pris">80,-</span></li>
+        <li>Spirit plus Vodka <span class="pris">70,-</span></li>
+        <li>Monster Vodka <span class="pris">80,-</span></li>
+        <li>Tildes Passion <span class="pris">80,-</span></li>
+    </ul>
+    </section>
+
+     <section>
+    <h4>Draught Beers</h4>
+    <ul>
+        <li>Grøn Tuborg Pilsner <span class="pris">200/50,-</span></li>
+        <li>Tuborg Classic <span class="pris">230/57,-</span></li>
+        <li>1664 Blanc <span class="pris">75,-</span></li>
+        <li>Brooklyn Special Effects <span class="pris">65,-</span></li>
+        <li>Burst IPA by Mikkeller <span class="pris">70,-</span></li>
+    </ul>
+    </section>
+
+      <section>
+    <h4>Alcohol Free</h4>
+    <ul>
+        <li>Carlsberg Nordic Pilsner <span class="pris">45,-</span></li>
+        <li>Brooklyn Special Effects <span class="pris">65,-</span></li>
+        <li>Implosion by To Øl <span class="pris">60,-</span></li>
+        <li>Coca Cola, Sport, Squash... <span class="pris">35,-</span></li>
+        <li>Mate <span class="pris">45,-</span></li>
+    </ul>
+    </section>
+<p class="vin">Udvalgte Naturvine fra Josephine Vinhandel</p>
+</div>
+</div>
+</Layout>
+
+
+<style>
+    .custom-blue-box {
+  position: absolute;
+  top: 76rem;
+  left: 0;
+  width: 100vw;
+  height: 25rem;
+  background-color: #8BA3C5;
+  z-index: -1;
+}
+    .vin {
+    font-weight: bold;
+    padding: 0;
+    font-size: 0.9rem;
+}
+    p {
+        padding: 1rem;
+    }
+   
+.text-content {
+  max-width: 600px;
+  margin: 0 auto;
+  color: white;
+}
+
+ ul {
+    list-style: none;
+    padding-left: 0;
+    }
+ li {
+    margin-bottom: 0.5rem;
+    }
+ .pris {
+    font-weight: bold;
+    }
+
+      .menu {
+    background-color: white;
+    padding: 2rem 2rem;
+    max-width: 600px;
+    margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .menu h3 {
+    grid-column: 1 / -1; /* Titel går på tværs */
+    margin-bottom: 1rem;
+  }
+
+  .menu .vin {
+    grid-column: 1 / -1; /* Naturvin-tekst også på tværs */
+    /* margin-top: 2rem; */
+  }   
+ h4 {
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    }
+
+.intro {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .intro p {
+    flex: 1;
+    padding: 0; /* fjerner ekstra padding på desktop */
+  }
+
+  .image-wrapper {
+    flex: 1;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-wrapper img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+.wrapper {
+  padding: 0 1.5rem; 
+}
+
+@media (max-width: 600px) {
+    .custom-blue-box {
+  /* position: absolute; */
+  top: 49rem;
+  left: 0;
+  width: 100vw;
+  height: 23rem;
+  background-color: #8BA3C5;
+  z-index: -1;
+}
+  .menu {
+    background-color: white;
+    padding: 2rem 2rem;
+    max-width: 600px;
+    margin-bottom: 4rem;
+    }
+.intro {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .intro p {
+    flex: 1;
+    padding: 0;
+  }
+
+  .image-wrapper {
+    flex: 1;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-wrapper img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  }
+</style>
