@@ -7,6 +7,23 @@ import MusikCard from "../components/MusikCard.astro";
 import ForsideInfo from "../components/ForsideInfo.astro";
 import Knap from "../components/Knap.astro";
 import H2 from "../components/H2.astro";
+
+const url = "https://ovfqkqxmthqfabnvnndq.supabase.co/rest/v1/Byhaven?id=in.(1,2,3)&select=*";
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92ZnFrcXhtdGhxZmFibnZubmRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY2OTQwNjAsImV4cCI6MjA2MjI3MDA2MH0.QGBHGl0rC79t_ySosixZ13L1Ukt5i3JvPwZaUEnMVvM";
+
+const options = {
+  headers: {
+    apikey: key,
+  },
+};
+
+let events = [];
+
+const res = await fetch(url, options);
+const data = await res.json();
+
+events = data.slice(0, 3);
+console.log("Events data:", events);
 ---
 
 <ForsideLayout>
@@ -16,51 +33,110 @@ import H2 from "../components/H2.astro";
     <Knap text="Se events" href="/musik" variant="default" />
   </div>
 
-  <MusikCard />
+  <section class="forside-events">
+    <div class="event-grid">
+      {events.length === 0 && <p>Ingen events tilgængelige lige nu.</p>}
+      {events.map((evt) => <MusikCard data={evt} />)}
+    </div>
+  </section>
 
   <ForsideInfo>
-    <div class="billede">
-      <h2>OM OS</h2>
-      <img src="omos.webp" alt="omos" />
-    </div>
-    <div class="tekst">
-      <h5>En oase i hjertet af København</h5>
-      <p>Byhaven er en oase i hjertet af det travle København. Hver sommer genåbner vi Byhaven fra april-september. Her kan du nyde Byhaven fra 15 til sent - og der er altid fri entré.</p><br />
-      <p>Vi sætter en dyd i at dykke ned i musikundergrunden og finde netop den musik, vi synes bør være soundtracket til din sommer.</p>
-      <div class="knap_margin">
+    <section class="section omos">
+      <div class="image">
+        <h2>OM OS</h2>
+        <img src="omos.webp" alt="Byhaven skilt og publikum" />
+      </div>
+      <div class="text">
+        <h3>En oase i hjertet af København</h3>
+        <p>Byhaven er en oase i hjertet af det travle København. Hver sommer genåbner vi Byhaven fra april-september. Her kan du nyde Byhaven fra 15 til sent – og der er altid fri entré.</p>
+        <p>Vi sætter en dyd i at dykke ned i musikkundergrunden og finde netop den musik, vi synes bør være soundtracket til din sommer.</p>
         <Knap text="Om os" href="/omos" variant="default" />
       </div>
-    </div>
+    </section>
   </ForsideInfo>
 
-  <ForsideInfo reverse>
-    <div class="billede">
-      <img class="billede" src="brooklyn.webp" alt="brooklyn" />
-    </div>
-    <div class="tekst">
-      <h2 class="madogbar">MAD OG BAR</h2>
-      <h5>Alt det ganen begærer</h5>
-      <p>I år løfter vi madoplevelsen i Byhaven – Killer Kebab rykker ind og serverer sprøde, saftige og smagfulde favoritter hele sæsonen! Glæd jer til streetfood-stemning og masser af god energi!</p><br />
-      <p>Baren i Byhaven er spækket med alt det lækre, som ganen begærer. Brooklyn Brewery har fyldt hanerne og køleskabene med lækre øl, så om du er til IPA, pilsnere eller sour, har Brooklyn din ryg - også hvis det skal være alkoholfrit.</p>
-      <div class="knap_margin">
-        <Knap text="Se mad" href="/mad" variant="default" />
-        <Knap text="Se bar" href="/bar" variant="default" />
+  <ForsideInfo>
+    <section class="section madbar">
+      <div class="image">
+        <img src="brooklyn.webp" alt="Glas med Brooklyn Brewery øl" />
       </div>
-    </div>
+      <div class="text">
+        <h2>MAD & BAR</h2>
+        <h3>Alt det ganen begærer.</h3>
+        <p>I år løfter vi madoplevelsen i Byhaven – Killer Kebab rykker ind og serverer sprøde, saftige og smagfulde favoritter hele sæsonen! Glæd jer til streetfood-stemning og masser af god energi!</p>
+        <p>Baren i Byhaven er spækket med alt det lækre, som ganen begærer. Brooklyn Brewery har fyldt hanerne og køleskabene med lækre øl, så om du er til IPA, pilsnere eller sour, har Brooklyn din ryg – også hvis det skal være alkoholfrit.</p>
+        <div class="buttons">
+          <Knap text="Se mad" href="/mad" variant="default" />
+          <Knap text="Se bar" href="/bar" variant="default" />
+        </div>
+      </div>
+    </section>
   </ForsideInfo>
 </ForsideLayout>
 
 <style>
-  .knap_margin {
-    margin-top: 2rem;
-  }
-  .tekst {
-    padding-right: 10rem;
-  }
-  .infoboks {
-    position: relative;
+  .section,
+  .section.madbar {
+    grid-template-columns: 1fr;
   }
 
-  @media (max-width: 600px) {
+  .section.madbar .text h2 {
+    padding-left: 0;
+  }
+
+  @media (min-width: 600px) {
+    .section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 4rem;
+      position: relative;
+      gap: 13rem;
+    }
+
+    .omos h2 {
+      grid-column: 1 / -1;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .omos .image {
+      grid-column: 1 / 2;
+    }
+
+    .omos .text {
+      grid-column: 2 / 3;
+      max-width: 450px;
+    }
+
+    .madbar .image {
+      grid-column: 2 / 3;
+    }
+
+    .madbar .text {
+      grid-column: 1 / 2;
+      grid-row: 1;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      max-width: 450px;
+    }
+
+    .madbar .text h2 {
+      grid-row: 1;
+      align-self: start;
+      margin: 0;
+    }
+
+    .image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
   }
 </style>
