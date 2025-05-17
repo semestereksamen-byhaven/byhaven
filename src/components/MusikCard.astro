@@ -1,17 +1,21 @@
 ---
-
+const { data } = Astro.props;
+console.log("MusikCard data:", data);
 ---
 
 <div class="event-card">
-  <img src="/konvent.png" alt="Konvent koncert" class="event-image" />
+  <article>
+    <h3>{data?.Navn}</h3>
+  </article>
+  <img src={data.Billede} alt={`Billede af ${data.Navn}`} class="event-image" />
   <div class="event-content">
-    <h2 class="event-title">Konvent</h2>
-    <div class="event-genre">Metal</div>
+    <h2 class="event-title">{data.Navn}</h2>
+    <div class="event-genre">{data.Genre}</div>
     <div class="event-info">
-      <span>2. maj 2025</span>
-      <span>Kl 19:00</span>
+      <span>{data.Dato}</span>
+      <span>{data.Tid}</span>
     </div>
-    <button class="event-button">Se mere</button>
+    <a class="event-button" href={`/kunstner/${data.slug}`}>Se mere</a>
   </div>
 </div>
 
