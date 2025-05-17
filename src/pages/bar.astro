@@ -9,21 +9,23 @@ import Headline from "../components/Headline.astro";
 
 <div class="custom-blue-box"></div>
 
-<div class="intro">
-<p>Baren i Byhaven er spækket med alt det lækre, som ganen begærer.  Vores venner fra Brooklyn Brewery har fyldt hanerne og køleskabene med  lækre øl, så om du er til IPA, pilsnere eller sour, har Brooklyn din ryg - også hvis det skal være alkoholfrit.</p>
-<div class="image-wrapper">
+<div class="bar">
+<div class="bar-text">
+<p class="text_1">Baren i Byhaven er spækket med alt det lækre, som ganen begærer.  Vores venner fra Brooklyn Brewery har fyldt hanerne og køleskabene med  lækre øl, så om du er til IPA, pilsnere eller sour, har Brooklyn din ryg - også hvis det skal være alkoholfrit.</p>
+</div>
+
+<div class="bar-image"> 
+<div class="image-wrapper billede2">
 <img src="/bar.webp" alt="Bar">
+<p class="overlay">Brooklyn <br> BREWERY</p>
 </div>
 </div>
 
-<div class="blue-box-wrapper">
-    <div class="blue-box"></div>
-    </div>
 
-    <div class="text-content">
+    <div class="bar-text2">
         <p>Vi elsker i øvrigt vin, og har en masser hamrende lækre naturvine og  lidt traditionelle vine klar til dig. Hvis du vil på vineventyr, så  spørg efter vores fulde vinkort i baren. Forfriskende cocktails, masser  af delikat spiritus og læskende drikkevarer uden alkohol har vi  selvfølgelig også.</p>
     </div>
-
+    
 
 <div class="wrapper">
 <div class="menu">
@@ -74,35 +76,38 @@ import Headline from "../components/Headline.astro";
 <p class="vin">Udvalgte Naturvine fra Josephine Vinhandel</p>
 </div>
 </div>
+</div>
 </Layout>
 
 
 <style>
     .custom-blue-box {
   position: absolute;
-  top: 76rem;
+  top: 44rem;
   left: 0;
   width: 100vw;
-  height: 25rem;
+  height: 27rem;
   background-color: #8BA3C5;
   z-index: -1;
 }
-    .vin {
+
+p {
+    padding: 1.5rem;
+}
+
+.menu {
+    background-color: white;
+    padding: 2rem 2rem;
+    max-width: 600px;
+    }
+
+      .vin {
     font-weight: bold;
     padding: 0;
     font-size: 0.9rem;
 }
-    p {
-        padding: 1rem;
-    }
-   
-.text-content {
-  max-width: 600px;
-  margin: 0 auto;
-  color: white;
-}
 
- ul {
+ul {
     list-style: none;
     padding-left: 0;
     }
@@ -113,98 +118,126 @@ import Headline from "../components/Headline.astro";
     font-weight: bold;
     }
 
-      .menu {
-    background-color: white;
-    padding: 2rem 2rem;
-    max-width: 600px;
-    margin-bottom: 4rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .menu h3 {
-    grid-column: 1 / -1; /* Titel går på tværs */
-    margin-bottom: 1rem;
-  }
-
-  .menu .vin {
-    grid-column: 1 / -1; /* Naturvin-tekst også på tværs */
-    /* margin-top: 2rem; */
-  }   
- h4 {
+     h4 {
     margin-bottom: 0.5rem;
     margin-top: 1.5rem;
     }
-
-.intro {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 2rem;
-  }
-
-  .intro p {
-    flex: 1;
-    padding: 0; /* fjerner ekstra padding på desktop */
-  }
-
-  .image-wrapper {
+ 
+      .image-wrapper {
     flex: 1;
     margin-top: 0;
     display: flex;
     justify-content: center;
+    margin-bottom: 3rem;
   }
 
-  .image-wrapper img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
+   .overlay {
+      font-family: "Reenie Beanie",cursive;
+  font-weight: 400;
+  position: absolute;
+  bottom: -13%;
+  left: 23%;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--white);
+  transform: rotate(-18deg);
+    }
 
-.wrapper {
-  padding: 0 1.5rem; 
-}
 
-@media (max-width: 600px) {
-    .custom-blue-box {
-  /* position: absolute; */
-  top: 49rem;
+/* Web layout */
+    @media (min-width: 600px) {
+.custom-blue-box {
+  top: 42rem;
   left: 0;
   width: 100vw;
-  height: 23rem;
+  height: 39rem;
   background-color: #8BA3C5;
   z-index: -1;
 }
-  .menu {
+
+p {
+    padding: 0rem;
+}
+
+.billede2 {
+        grid-column: 2;
+        grid-row: 1 / 4;
+        align-self: start;
+      }
+
+        .billede2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: none;
+  }
+
+
+       .bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 2rem;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 1;
+    grid-row: 3;
     background-color: white;
     padding: 2rem 2rem;
-    max-width: 600px;
-    margin-bottom: 4rem;
-    }
-.intro {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 2rem;
+    max-width: 100%;
+  } 
+
+  /* Titel går på tværs */
+.menu h3 {
+    grid-column: 1 / -1; 
+  } 
+
+  /* Naturvin-tekst også på tværs */
+  .menu .vin {
+    grid-column: 1 / -1; 
+    margin-top: 0.5rem;
+  } 
+
+  .bar-text {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.bar-text2 {
+    grid-column: 1;
+    grid-row: 2;
   }
 
-  .intro p {
-    flex: 1;
-    padding: 0;
-  }
-
-  .image-wrapper {
-    flex: 1;
-    margin-top: 0;
-    display: flex;
-    justify-content: center;
+  .bar-image {
+    grid-column: 2;
+    grid-row: 1 / span 3; 
+    position: relative;
   }
 
   .image-wrapper img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    display: block;
+    object-fit: cover;
   }
 
+  .overlay {
+    font-family: "Reenie Beanie", cursive;
+    font-weight: 400;
+    position: absolute;
+    bottom: -2.5%;
+    left: 47%;
+    font-size: 6rem;
+    line-height: 1;
+    color: white;
+    transform: rotate(-15deg);
   }
+    }
 </style>
