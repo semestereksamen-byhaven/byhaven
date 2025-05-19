@@ -20,6 +20,10 @@ const data = await res.json();
 
 <Layout>
   <Headline title="SOMMERENS PROGRAM" />
+  <p>Programmet er spækket med larm, fest og lange sommer aftener.</p>
+  <p>Kom for musikken – bliv for stemningen.</p>
+  <p>Find din dag. Vi sørger for resten.</p>
+
   <section class="knapper">
     <div class="tab maj_color">Maj</div>
     <div class="tab juni_color inactive">Juni</div>
@@ -58,14 +62,38 @@ const data = await res.json();
         })
       }
     </div>
+    <div id="august" class="program august_color">
+      {
+        data.map((event) => {
+          if (event.Month == "August") {
+            return <MusikCard data={event} />;
+          }
+        })
+      }
+    </div>
+    <div id="september" class="program september_color">
+      {
+        data.map((event) => {
+          if (event.Month == "September") {
+            return <MusikCard data={event} />;
+          }
+        })
+      }
+    </div>
   </div>
 </Layout>
 
 <style>
+  p {
+    text-align: center;
+    line-height: 1rem;
+    padding-bottom: 0.5rem;
+  }
   .knapper {
     display: flex;
     margin-left: 2rem;
     gap: 5px;
+    margin-top: 2.5rem;
   }
 
   .tab {
@@ -86,6 +114,12 @@ const data = await res.json();
 
   .juli_color {
     background-color: var(--green);
+  }
+  .august_color {
+    background-color: var(--light_blue);
+  }
+  .september_color {
+    background-color: var(--dark_blue);
   }
   .tab.inactive {
     background-color: white;
