@@ -6,4 +6,212 @@ import Headline from "../components/Headline.astro";
 <Layout>
   <Headline />
   <Headline title="MAD I BYHAVEN" />
+
+<div class="red-box"></div>
+
+<div class="mad">
+
+<div class="mad-image"> 
+<div class="image-wrapper billede2">
+<img src="/mad.webp" alt="Mad">
+<p class="overlay">One more <br> please!!!</p>
+</div>
+</div>
+
+
+    <div class="mad-text2">
+        <h3>Killer Kebab i Byhaven - sommerens stærkeste streetfood <br></h3>
+<p>Hele sommeren lang kan du finde Killer Kebab i Byhaven - klar med varme fladbrød, sprøde fritter og hjemmelavet dip, der passer perfekt til en kold øl og god musik i solen. Menuen er enkel, smagfuld og lige til at tage med i hånden - uanset om du er til saftig kebab, sprød falafel eller bare er på jagt efter de bedste fritter på pladsen.</p>
+    </div>
+    
+
+<div class="wrapper">
+<div class="menu">
+    <h3>Menu</h3>
+    <section>
+    <h4>Killer Kombo</h4>
+    <ul>
+      Vælg mellem kebab eller falafel - inkl. Killer Fries og en dip efter eget valg. <br> 
+      <span class="pris">149,-</span>
+    </ul>
+    </section>
+
+    <section>
+    <h4>Sides</h4>
+    <ul>
+        <li>Killer Fries <span class="pris">40,-</span></li>
+        <li>Harissa Mayo <span class="pris">20,-</span></li>
+        <li>3 x Falafel Balls + trøffel mayo <span class="pris">39,-</span></li>
+    </ul>
+    </section>
+
+     <section>
+    <h4>Killer Kebab Durum</h4>
+    <ul>
+        <li>Lun fladbrød med  marineret lammekebab, friske grøntsager, urter og dressing <span class="pris">95,-</span></li>
+    </ul>
+    </section>
+
+      <section>
+    <h4>Killer Falafel Durum</h4>
+    <ul>
+        <li>Sprøde, hjemmelavede falafler pakket med friske grøntsager og hummus <span class="pris">95,-</span></li>
+    </ul>
+    </section>
+</div>
+</div>
+</div>
 </Layout>
+
+
+<style>
+    .red-box {
+  position: absolute;
+  top: 28.5rem;
+  left: 0;
+  width: 100vw;
+  height: 35rem;
+  background-color: #B95A60;
+  z-index: -1;
+}
+
+.menu {
+    background-color: white;
+    padding: 2rem 2rem;
+    max-width: 600px;
+    }
+
+      .vin {
+    font-weight: bold;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    }
+ li {
+    margin-bottom: 0.5rem;
+    }
+ .pris {
+    font-weight: bold;
+    }
+
+     h4 {
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    }
+ 
+      .image-wrapper {
+    flex: 1;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+   .overlay {
+  font-family: "Reenie Beanie",cursive;
+  font-weight: 400;
+  position: absolute;
+  bottom: 41%;
+  left: 30%;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--white);
+  transform: rotate(-18deg);
+    }
+
+
+/* Web layout */
+    @media (min-width: 600px) {
+.red-box {
+  top: 42rem;
+  left: 0;
+  width: 100vw;
+  height: 39rem;
+  background-color: #B95A60;
+  z-index: -1;
+}
+
+p {
+    padding: 0rem;
+}
+
+    .billede2 {
+        grid-column: 2;
+        grid-row: 1 / 4;
+        align-self: start;
+      }
+
+      .billede2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: none;
+  }
+
+
+       .mad {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 2rem;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 1;
+    grid-row: 3;
+    background-color: white;
+    padding: 2rem 2rem;
+    max-width: 100%;
+  } 
+
+  /* Titel går på tværs */
+.menu h3 {
+    grid-column: 1 / -1; 
+  } 
+
+  .mad-text {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.mad-text2 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .mad-image {
+    grid-column: 2;
+    grid-row: 1 / span 3; 
+    position: relative;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .overlay {
+    font-family: "Reenie Beanie", cursive;
+    font-weight: 400;
+    position: absolute;
+    bottom: 40.5%;
+    left: 30.5%;
+    font-size: 6rem;
+    line-height: 1;
+    color: white;
+    transform: rotate(-15deg);
+  }
+    }
+</style>
