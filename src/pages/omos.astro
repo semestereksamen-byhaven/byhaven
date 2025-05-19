@@ -4,13 +4,13 @@ import Headline from "../components/Headline.astro";
 ---
 
 <Layout>
-  <div class="orange_box_wrapper">
-    <div class="orange_box"></div>
+  <div class="orange_box"></div>
 
-    <Headline />
-    <Headline title="OM OS" />
+  <Headline />
+  <Headline title="OM OS" />
 
-    <section class="omos">
+  <section class="omos">
+    <div class="kolonne_1">
       <p class="text_1">Byhaven er mere end musik. Den er fest, snak, hygge, spisning, karaoke, bingo, festivaler, vin, lækre øl, læskende cocktails og kulørte lamper. Vi har masser af siddepladser – både i solen og i skyggen af vores store kastanjetræer – og skulle det blive køligt, tænder vi bare vores varmelamper.</p>
 
       <div class="billede_wrapper billede1">
@@ -23,7 +23,9 @@ import Headline from "../components/Headline.astro";
           Byhaven er en del af spillestedet Pumpehuset, der på to scener i et gammelt nedlagt vandværk præsenterer masser af metal, hiphop, elektronisk musik og meget andet. Tjek Pumpehusets program ud <a href="#">her</a>.
         </p>
       </div>
+    </div>
 
+    <div class="kolonne_2">
       <div class="billede_wrapper billede2">
         <img src="omos_2.webp" alt="Byhaven skilt på scenen" />
       </div>
@@ -31,114 +33,94 @@ import Headline from "../components/Headline.astro";
       <div class="text_3">
         <p>Byhaven er en oase i hjertet af det travle København. Hver sommer, fra april til september – og der er altid fri entré. Hver åbningsdag kan du opleve koncerter med dansk upcoming musik og kommende udenlandske stjerner. Vi sætter en dyd i at dykke ned i musikundergrounden og finde netop den musik, vi synes bør være soundtracket til din sommer. Byhaven åbner kl. 15.00 og koncerterne starter kl. 19.00.</p>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+</Layout>
 
-  <style>
-    .billede_wrapper {
-      position: relative;
-      margin-bottom: 2rem;
+<style>
+  .billede_wrapper {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .billede_wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Skråskrift mobil*/
+  .overlay {
+    font-family: "Reenie Beanie", cursive;
+    font-weight: 400;
+    position: absolute;
+    bottom: -3%;
+    left: 5%;
+    font-size: 4rem;
+    line-height: 1.2;
+    color: var(--white);
+    transform: rotate(-15deg);
+  }
+
+  /* Farvet boks mobil*/
+  .orange_box {
+    background-color: var(--yellow);
+    width: 100vw;
+    height: 30rem;
+    position: absolute;
+    top: 80%;
+    left: 0;
+    z-index: -1;
+  }
+
+  /* Web layout */
+  @media (min-width: 900px) {
+    .omos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  /* Kolonne 1 */
+  @media (min-width: 900px) {
+    .kolonne_1 {
+      display: flex;
+      flex-direction: column;
     }
 
-    .billede_wrapper img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .text_1 {
+      order: 1;
     }
 
-    .overlay {
-      font-family: "Reenie Beanie", cursive;
-      font-weight: 400;
-      position: absolute;
-      bottom: -3%;
-      left: 5%;
-      font-size: 3rem;
-      line-height: 1.2;
-      color: var(--white);
-      transform: rotate(-20deg);
+    .text_2 {
+      order: 2;
     }
 
-    .orange_box_wrapper {
-      position: relative;
+    .billede1 {
+      order: 3;
     }
 
-    .orange_box {
-      background-color: var(--yellow);
-      width: 100vw;
-      height: 600px; /* juster højden som du vil */
-      position: absolute;
-      top: 30%; /* eller hvad der passer */
-      left: 0;
-      z-index: -100;
-      margin-left: calc(-1 * ((100vw - 100%) / 2)); /* fjerner margin (fået hjælp af chatgpt) */
-    }
-
-    /* Web layout */
-    @media (min-width: 600px) {
-      .omos {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
-        gap: 2rem;
-        align-items: start;
-      }
-
-      .text_1 {
-        grid-column: 1;
-        grid-row: 1;
-      }
-
-      .text_2 {
-        grid-column: 1;
-        grid-row: 2;
-      }
-
-      .billede1 {
-        grid-column: 1;
-        grid-row: 3;
-      }
-
-      .billede2 {
-        grid-column: 2;
-        grid-row: 1 / 4;
-        align-self: start;
-      }
-
-      .billede2 img {
-        width: 100%;
-        height: auto;
-        max-height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .text_3 {
-        grid-column: 2;
-        grid-row: 4;
-      }
-
-      .billede_wrapper {
-        margin-bottom: 0;
-      }
-    }
+    /* Skråskrift */
 
     .overlay {
       font-size: 4rem;
-      bottom: -6%;
-      transform: rotate(-20deg) translate(-10px, 5px);
+      bottom: -20%;
+      left: 5%;
+      transform: rotate(-15deg);
     }
+  }
 
-    @media (min-width: 600px) {
-      .orange_box {
-        background-color: var(--yellow);
-        width: 100vw;
-        height: 600px; /* juster højden som du vil */
-        position: absolute;
-        top: 60%; /* eller hvad der passer */
-        left: 0;
-        z-index: -100;
-        margin-left: calc(-1 * ((100vw - 100%) / 2)); /* fjerner margin (fået hjælp af chatgpt) */
-      }
+  /* Farvet boks web
+  @media (min-width: 900px) {
+    .orange_box {
+      background-color: var(--yellow);
+      width: 100vw;
+      height: 60rem;
+      position: absolute;
+      top: 80%;
+      left: 0;
+      z-index: -1;
     }
-  </style>
-</Layout>
+  } */
+</style>
