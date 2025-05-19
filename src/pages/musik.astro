@@ -1,18 +1,123 @@
 ---
+//@ts-nocheck
 import Layout from "../layouts/Layout.astro";
 import Headline from "../components/Headline.astro";
 import Knap from "../components/Knap.astro";
+import MusikCard from "../components/MusikCard.astro";
+
+const url = `https://ovfqkqxmthqfabnvnndq.supabase.co/rest/v1/byhaven`;
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92ZnFrcXhtdGhxZmFibnZubmRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY2OTQwNjAsImV4cCI6MjA2MjI3MDA2MH0.QGBHGl0rC79t_ySosixZ13L1Ukt5i3JvPwZaUEnMVvM";
+
+const options = {
+  headers: {
+    apikey: key,
+  },
+};
+
+const res = await fetch(url, options);
+const data = await res.json();
 ---
 
 <Layout>
-  <Headline />
-
-  <Headline title="PROGRAM" />
-  <section>
-    <Knap text="Maj" variant="maj" />
-    <Knap text="Juni" variant="juni" />
-    <Knap text="Juli" variant="juli" />
-    <Knap text="August" variant="august" />
-    <Knap text="September" variant="september" />
+  <Headline title="SOMMERENS PROGRAM" />
+  <section class="knapper">
+    <div class="tab maj_color">Maj</div>
+    <div class="tab juni_color inactive">Juni</div>
+    <div class="tab juli_color inactive">Juli</div>
+    <div class="tab august_color inactive">August</div>
+    <div class="tab september_color inactive">September</div>
   </section>
+
+  <div class="program-wrapper">
+    <div id="maj" class="program viser maj_color">
+      {
+        data.map((event) => {
+          if (event.Month == "Maj") {
+            return <MusikCard data={event} />;
+          }
+        })
+      }
+    </div>
+
+    <div id="juni" class="program juni_color">
+      {
+        data.map((event) => {
+          if (event.Month == "Juni") {
+            return <MusikCard data={event} />;
+          }
+        })
+      }
+    </div>
+
+    <div id="juli" class="program juli_color">
+      {
+        data.map((event) => {
+          if (event.Month == "Juli") {
+            return <MusikCard data={event} />;
+          }
+        })
+      }
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .knapper {
+    display: flex;
+    margin-left: 2rem;
+    gap: 5px;
+  }
+
+  .tab {
+    padding: 1.1rem 6rem;
+    display: inline-block;
+    font-family: "Tuffy", sans-serif;
+    color: var(--black);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .maj_color {
+    background-color: var(--red);
+  }
+
+  .juni_color {
+    background-color: var(--yellow);
+  }
+
+  .juli_color {
+    background-color: var(--green);
+  }
+  .tab.inactive {
+    background-color: white;
+  }
+
+  .program {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    align-content: center;
+  }
+
+  .viser {
+    display: grid;
+  }
+</style>
+
+<script>
+  document.querySelectorAll(".knapper").forEach((knap) => {
+    knap.addEventListener("click", changeMoonth);
+  });
+
+  function changeMoonth(event) {
+    document.querySelectorAll(".tab").forEach((div) => {
+      div.classList.add("inactive");
+    });
+    event.target.classList.remove("inactive");
+
+    document.querySelectorAll(".program").forEach((div) => {
+      div.classList.remove("viser");
+    });
+    let month = event.target.firstChild.textContent.toLowerCase();
+    document.querySelector(`#${month}`).classList.add("viser");
+  }
+</script>

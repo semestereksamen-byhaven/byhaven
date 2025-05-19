@@ -1,18 +1,19 @@
 ---
 const { data } = Astro.props;
 console.log("MusikCard data:", data);
+
+let month = data.Month;
+let date = parseInt(data.Dato.slice(8));
+let formattedDate = `${date}. ${month} 2025`;
 ---
 
 <div class="event-card">
-  <article>
-    <h3>{data?.Navn}</h3>
-  </article>
   <img src={data.Billede} alt={`Billede af ${data.Navn}`} class="event-image" />
   <div class="event-content">
     <h2 class="event-title">{data.Navn}</h2>
     <div class="event-genre">{data.Genre}</div>
     <div class="event-info">
-      <span>{data.Dato}</span>
+      <span>{formattedDate}</span>
       <span>{data.Tid}</span>
     </div>
     <a class="event-button" href={`/kunstner/${data.slug}`}>Se mere</a>
@@ -22,7 +23,7 @@ console.log("MusikCard data:", data);
 <style>
   .event-card {
     background-color: white;
-    width: 320px;
+    /* width: 320px; */
     overflow: hidden;
   }
 
