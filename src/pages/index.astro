@@ -8,7 +8,7 @@ import ForsideInfo from "../components/ForsideInfo.astro";
 import Knap from "../components/Knap.astro";
 import H2 from "../components/H2.astro";
 
-const url = "https://ovfqkqxmthqfabnvnndq.supabase.co/rest/v1/byhaven?id=in.(1,2,3)&select=*";
+const url = "https://ovfqkqxmthqfabnvnndq.supabase.co/rest/v1/byhaven?id=in.(1,2,3,4)&select=*";
 const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92ZnFrcXhtdGhxZmFibnZubmRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY2OTQwNjAsImV4cCI6MjA2MjI3MDA2MH0.QGBHGl0rC79t_ySosixZ13L1Ukt5i3JvPwZaUEnMVvM";
 
 const options = {
@@ -22,7 +22,7 @@ let events = [];
 const res = await fetch(url, options);
 const data = await res.json();
 
-events = data.slice(0, 3);
+events = data.slice(0, 4);
 ---
 
 <ForsideLayout>
@@ -82,7 +82,22 @@ events = data.slice(0, 3);
     padding-left: 0;
   }
 
-  @media (min-width: 600px) {
+  .events {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .events {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (min-width: 900px) {
     .event-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
