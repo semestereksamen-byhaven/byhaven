@@ -16,14 +16,13 @@ const options = {
     apikey: key,
   },
 };
-
+/* Denne bruges for at hente alt data og derefter kunne udvælge få data fra api*/
 let events = [];
 
 const res = await fetch(url, options);
 const data = await res.json();
 
 events = data.slice(0, 3);
-console.log("Events data:", events);
 ---
 
 <ForsideLayout>
@@ -35,7 +34,6 @@ console.log("Events data:", events);
 
   <section class="forside-events">
     <div class="event-grid">
-      {events.length === 0 && <p>Ingen events tilgængelige lige nu.</p>}
       {events.map((evt) => <MusikCard data={evt} />)}
     </div>
   </section>
@@ -85,6 +83,12 @@ console.log("Events data:", events);
   }
 
   @media (min-width: 600px) {
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      align-content: center;
+    }
     .section {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
