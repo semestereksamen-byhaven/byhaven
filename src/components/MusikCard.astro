@@ -14,23 +14,38 @@ let formattedDate = `${date}. ${month} 2025`;
     <div class="event-genre">{data.Genre}</div>
     <div class="event-info">
       <span>{formattedDate}</span>
-      <span>{data.Tid}</span>
+      <span>Kl. {data.Tid}:00</span>
     </div>
     <a class="event-button" href={`/kunstner/${data.slug}`}>Se mere</a>
   </div>
 </div>
 
 <style>
+  span {
+    font-family: "Raleway", sans-serif;
+    color: var(--overskrift);
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
+  }
+  h2 {
+    font-family: "Raleway", sans-serif;
+    color: var(--black);
+    font-size: 2rem;
+    font-weight: 700;
+  }
   .event-card {
     background-color: white;
-    /* width: 320px; */
+    width: fit-content;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
   }
 
   .event-image {
     display: block;
-    width: 100%;
-    padding: 8px;
+    width: 50%;
     box-sizing: border-box;
   }
 
@@ -44,29 +59,96 @@ let formattedDate = `${date}. ${month} 2025`;
     display: inline-block;
     background-color: #e0e0e0;
     color: black;
-    font-size: 0.9em;
     padding: 5px 15px;
     margin-bottom: 12px;
     width: fit-content;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
   }
 
   .event-info {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     margin-bottom: 8px;
-    font-size: 1em;
+    font-size: 0.9rem;
+    gap: 34px;
   }
 
   .event-button {
-    padding: 6px 12px;
+    padding: 1px 10px;
     border: 1px solid black;
     background: none;
     cursor: pointer;
     width: fit-content;
     align-self: flex-end;
+    text-decoration: none;
   }
   .event-content {
     display: flex;
     flex-direction: column;
+    padding-left: 10px;
+  }
+
+  @media (min-width: 600px) {
+    span {
+      font-family: "Raleway", sans-serif;
+      color: var(--overskrift);
+      font-size: 1.3rem;
+      font-weight: 300;
+      text-align: center;
+    }
+    .event-card {
+      background-color: white;
+      /* width: 320px; */
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .event-image {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    .event-title {
+      margin: 8px 0;
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+
+    .event-genre {
+      display: inline-block;
+      background-color: #e0e0e0;
+      color: black;
+      font-size: 0.9em;
+      padding: 5px 15px;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+
+    .event-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 1em;
+    }
+
+    .event-button {
+      border: 1px solid black;
+      background: none;
+      cursor: pointer;
+      width: fit-content;
+      align-self: flex-end;
+      text-decoration: none;
+    }
+    .event-content {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+    }
   }
 </style>
