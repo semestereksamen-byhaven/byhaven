@@ -98,7 +98,17 @@ events = data.slice(0, 3);
     position: relative;
   }
 
+  .events {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    margin: 0 auto;
+  }
+
   @media (min-width: 600px) {
+    .madbar-heading {
+      display: none;
+    }
     .mobile-only {
       display: none;
     }
@@ -130,7 +140,6 @@ events = data.slice(0, 3);
     .omos h2 {
       grid-column: 1 / -1;
       margin-bottom: 1rem;
-      font-size: 1.5rem;
     }
 
     .omos .image {
@@ -169,6 +178,9 @@ events = data.slice(0, 3);
       display: flex;
       gap: 1rem;
       margin-top: 1rem;
+    }
+
+    .events {
     }
   }
 </style>
