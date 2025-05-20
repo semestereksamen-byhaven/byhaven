@@ -21,9 +21,7 @@ const data = await res.json();
 
 <Layout>
   <Headline title="SOMMERENS PROGRAM" />
-  <p>Programmet er spækket med larm, fest og lange sommer aftener.</p>
-  <p>Kom for musikken – bliv for stemningen.</p>
-  <p>Find din dag. Vi sørger for resten.</p>
+  <p>Programmet er spækket med larm, fest og lange sommer aftener. Kom for musikken – bliv for stemningen. Find din dag. Vi sørger for resten.</p>
 
   <section class="knapper">
     <div class="tab maj_color">Maj</div>
@@ -85,9 +83,10 @@ const data = await res.json();
 <style>
   p {
     text-align: center;
-    line-height: 1rem;
+    line-height: 1.5rem;
     padding-bottom: 0.5rem;
   }
+
   .maj_color {
     background-color: var(--red);
   }
@@ -128,7 +127,7 @@ const data = await res.json();
     display: flex;
     justify-content: center;
     margin-top: 2rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .month-dropdown {
@@ -174,6 +173,11 @@ const data = await res.json();
       padding-left: 6rem;
       padding-right: 6rem;
       padding-bottom: 5rem;
+    }
+    p {
+      max-width: 80rem;
+      padding-left: 20rem;
+      padding-right: 20rem;
     }
   }
 </style>
