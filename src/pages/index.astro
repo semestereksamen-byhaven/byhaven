@@ -38,51 +38,78 @@ events = data.slice(0, 3);
     </div>
   </section>
 
-  <ForsideInfo>
-    <section class="section omos">
-      <div class="image">
-        <h2>OM OS</h2>
-        <img src="omos.webp" alt="Byhaven skilt og publikum" />
-      </div>
-      <div class="text">
-        <h3>En oase i hjertet af København</h3>
-        <p>Byhaven er en oase i hjertet af det travle København. Hver sommer genåbner vi Byhaven fra april-september. Her kan du nyde Byhaven fra 15 til sent – og der er altid fri entré.</p>
-        <p>Vi sætter en dyd i at dykke ned i musikkundergrunden og finde netop den musik, vi synes bør være soundtracket til din sommer.</p>
-        <Knap text="Om os" href="/omos" variant="default" />
-      </div>
-    </section>
-  </ForsideInfo>
+  <section class="section omos">
+    <div class="image">
+      <h2>OM OS</h2>
+      <img src="omos.webp" alt="Byhaven skilt og publikum" />
+    </div>
+    <div class="text">
+      <h3>En oase i hjertet af København</h3>
+      <p>Byhaven er en oase i hjertet af det travle København. Hver sommer genåbner vi Byhaven fra april-september. Her kan du nyde Byhaven fra 15 til sent – og der er altid fri entré.</p>
+      <p>Vi sætter en dyd i at dykke ned i musikkundergrunden og finde netop den musik, vi synes bør være soundtracket til din sommer.</p>
+      <Knap text="Om os" href="/omos" variant="default" />
+    </div>
+  </section>
 
-  <ForsideInfo>
-    <section class="section madbar">
-      <div class="image">
-        <img src="brooklyn.webp" alt="Glas med Brooklyn Brewery øl" />
+  <section class="section madbar">
+    <div class="image">
+      <h2 class="madbar-heading mobile-only">MAD & BAR</h2>
+      <img src="brooklyn.webp" alt="Glas med Brooklyn Brewery øl" />
+    </div>
+    <div class="text">
+      <h2 class="madbar-heading desktop-only">MAD & BAR</h2>
+      <h3>Alt det ganen begærer.</h3>
+      <p>I år løfter vi madoplevelsen i Byhaven – Killer Kebab rykker ind og serverer sprøde, saftige og smagfulde favoritter hele sæsonen! Glæd jer til streetfood-stemning og masser af god energi!</p>
+      <p>Baren i Byhaven er spækket med alt det lækre, som ganen begærer. Brooklyn Brewery har fyldt hanerne og køleskabene med lækre øl, så om du er til IPA, pilsnere eller sour, har Brooklyn din ryg – også hvis det skal være alkoholfrit.</p>
+      <div class="buttons">
+        <Knap text="Se mad" href="/mad" variant="default" />
+        <Knap text="Se bar" href="/bar" variant="default" />
       </div>
-      <div class="text">
-        <h2>MAD & BAR</h2>
-        <h3>Alt det ganen begærer.</h3>
-        <p>I år løfter vi madoplevelsen i Byhaven – Killer Kebab rykker ind og serverer sprøde, saftige og smagfulde favoritter hele sæsonen! Glæd jer til streetfood-stemning og masser af god energi!</p>
-        <p>Baren i Byhaven er spækket med alt det lækre, som ganen begærer. Brooklyn Brewery har fyldt hanerne og køleskabene med lækre øl, så om du er til IPA, pilsnere eller sour, har Brooklyn din ryg – også hvis det skal være alkoholfrit.</p>
-        <div class="buttons">
-          <Knap text="Se mad" href="/mad" variant="default" />
-          <Knap text="Se bar" href="/bar" variant="default" />
-        </div>
-      </div>
-    </section>
-  </ForsideInfo>
+    </div>
+  </section>
 </ForsideLayout>
 
 <style>
   .section,
   .section.madbar {
-    grid-template-columns: 1fr;
+    margin-bottom: 2.5rem;
+    margin-top: 2.5rem;
   }
 
   .section.madbar .text h2 {
     padding-left: 0;
   }
+  img {
+    width: 100%;
+  }
+  .mobile-only {
+    display: block;
+  }
+  .desktop-only {
+    display: none;
+  }
+
+  .madbar .mobile-only {
+    top: 1rem;
+    z-index: 2;
+  }
+
+  .madbar .image {
+    position: relative;
+  }
 
   @media (min-width: 600px) {
+    .mobile-only {
+      display: none;
+    }
+
+    .desktop-only {
+      display: block;
+    }
+
+    .madbar .desktop-only {
+      margin: 0 0 1rem 0;
+    }
     .event-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -97,6 +124,7 @@ events = data.slice(0, 3);
       margin-bottom: 4rem;
       position: relative;
       gap: 13rem;
+      margin-bottom: 5rem;
     }
 
     .omos h2 {
