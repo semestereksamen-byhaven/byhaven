@@ -1,0 +1,106 @@
+---
+//@ts-nocheck
+import Layout from "../../layouts/Layout.astro";
+
+// 1. Generer dynamiske paths
+export async function getStaticPaths() {
+  const url = `https://ovfqkqxmthqfabnvnndq.supabase.co/rest/v1/byhaven`;
+  const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92ZnFrcXhtdGhxZmFibnZubmRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY2OTQwNjAsImV4cCI6MjA2MjI3MDA2MH0.QGBHGl0rC79t_ySosixZ13L1Ukt5i3JvPwZaUEnMVvM";
+
+  const options = {
+    headers: {
+      apikey: key,
+    },
+  };
+
+  const res = await fetch(url, options);
+  const data = await res.json();
+
+  return data.map((artist) => {
+    return {
+      params: { semere: artist.Slug },
+      props: { artist },
+    };
+  });
+}
+
+// 2. Props modtages som variabel
+const { artist } = Astro.props;
+---
+
+<Layout>
+  <section class="artist-page">
+    <div class="green-box"></div>
+
+    <h1 class="artist-title">{artist.Navn}</h1>
+    <div class="artist-layout">
+      <div class="kolonne_1">
+        <div class="artist-text">
+          <p>{artist.Beskrivelse}</p>
+          <p>LYT HER:</p>
+          <iframe src={artist.Spotify} width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"> </iframe>
+        </div>
+      </div>
+
+      <div class="kolonne_2">
+        <img src={artist.Billede} alt={`Billede af ${artist.Navn}`} class="event-image" />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .artist-layout {
+    display: flex;
+    flex-direction: column-reverse;
+
+    gap: 2rem;
+  }
+
+  .event-image {
+    order: 2;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Grøn boks */
+  .green-box {
+    background-color: #7c7a65;
+    width: 100vw;
+    height: 30rem;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+  }
+
+  /* Web layout – to kolonner som i om os */
+  @media (min-width: 900px) {
+    .artist-title {
+      text-align: left;
+    }
+
+    .artist-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+
+    .kolonne_1 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kolonne_2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .event-image {
+      order: 1;
+      padding-bottom: 0;
+    }
+  }
+</style>
