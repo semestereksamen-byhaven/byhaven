@@ -8,54 +8,36 @@
       <a href="/"> Byhaven </a>
     </div>
 
-    <button class="burger" id="burger" aria-label="Menu">
+    <button class="burger" onclick="openNav()" aria-label="Menu">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
-
-    <div class="menu" id="menu">
-      <ul>
-        <li><a href="/musik">Program</a></li>
-        <li><a href="/mad">Mad</a></li>
-        <li><a href="/bar">Bar</a></li>
-        <li><a href="/omos">Om os</a></li>
-      </ul>
-    </div>
   </nav>
 </header>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const burger = document.getElementById("burger");
-    const menu = document.getElementById("menu");
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="/musik">Program</a>
+    <a href="/mad">Mad</a>
+    <a href="/bar">Bar</a>
+    <a href="/omos">Om os</a>
+  </div>
+</div>
 
-    burger.addEventListener("click", () => {
-      menu.classList.toggle("active");
-      burger.classList.toggle("open");
-    });
-  });
+<script is:inline>
+  function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+  }
+
+  function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+  }
 </script>
 
 <style>
-  .header {
-    background-color: var(--background);
-    padding: 1rem 1.5rem;
-  }
-
-  .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .logo a {
-    text-decoration: none;
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: var(--black);
-  }
-
+  /* Burger-knap styling (kun synlig på mobil) */
   .burger {
     display: flex;
     flex-direction: column;
@@ -63,84 +45,75 @@
     background: none;
     border: none;
     cursor: pointer;
+    z-index: 11;
+    position: fixed;
+    top: 20px;
+    right: 20px;
   }
 
   .burger .bar {
     width: 25px;
     height: 3px;
-    background-color: var(--black);
+    background-color: rgb(0, 0, 0);
     transition: 0.3s;
   }
 
-  .burger.open .bar:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-  }
-  .burger.open .bar:nth-child(2) {
-    opacity: 0;
-  }
-  .burger.open .bar:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
-  }
-
-  .menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    padding-top: 1rem;
+  /* Overlay container (skjult som standard) */
+  .overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    overflow-x: hidden;
+    transition: width 0.5s ease;
+    z-index: 10;
   }
 
-  .menu.active {
-    display: flex;
-  }
-
-  .menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 1rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .menu ul li a {
+  /* Luk-knap i hjørnet */
+  .closebtn {
+    position: absolute;
+    top: 20px;
+    left: 35px;
+    font-size: 60px;
     text-decoration: none;
-    font-family: "Work Sans", sans-serif;
-    color: var(--black);
-    font-weight: 400;
-    font-size: 4.5rem;
-    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
   }
 
-  @media (min-width: 600px) {
-    .burger {
+  /* Link-indhold i overlay */
+  .overlay-content {
+    position: relative;
+    top: 30%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .overlay-content a {
+    font-size: 2rem;
+    color: #f1f1f1;
+    text-decoration: none;
+    font-weight: 400;
+    text-transform: uppercase;
+    transition: 0.3s;
+  }
+
+  .overlay-content a:hover {
+    color: var(--accent-color, #ff4081); /* eller en fast farve */
+  }
+
+  /* Skjul overlay og burger på større skærme */
+  @media screen and (min-width: 768px) {
+    .overlay {
       display: none;
     }
 
-    .menu {
-      display: flex !important;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-      background: transparent;
-      padding: 0;
-    }
-
-    .menu ul {
-      flex-direction: row;
-      gap: 3rem;
-    }
-
-    .menu ul li a {
-      font-size: 0.9rem;
-    }
-
-    .header {
-      padding: 1.5rem 2rem;
-    }
-
-    .nav {
-      /* max-width: 1200px; */
-      margin: 0 auto;
+    .burger {
+      display: none;
     }
   }
 </style>
