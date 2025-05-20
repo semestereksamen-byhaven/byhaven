@@ -16,7 +16,10 @@ let formattedDate = `${date}. ${month} 2025`;
       <span>{formattedDate}</span>
       <span>Kl. {data.Tid}:00</span>
     </div>
-    <a class="event-button" href={`/kunstner/${data.Slug}`}>Se mere</a>
+    <div class="infoboks">
+      <span>Fri entre</span>
+      <a class="event-button" href={`/kunstner/${data.Slug}`}>Se mere</a>
+    </div>
   </div>
 </div>
 
@@ -90,6 +93,10 @@ let formattedDate = `${date}. ${month} 2025`;
     flex-direction: column;
     padding-left: 10px;
   }
+  .infoboks {
+    display: flex;
+    justify-content: space-between;
+  }
 
   @media (min-width: 600px) {
     span {
@@ -142,8 +149,12 @@ let formattedDate = `${date}. ${month} 2025`;
       background: none;
       cursor: pointer;
       width: fit-content;
-      align-self: flex-end;
+
       text-decoration: none;
+    }
+    .infoboks {
+      display: flex;
+      justify-content: space-between;
     }
     .event-content {
       display: flex;

@@ -8,7 +8,7 @@ import ForsideInfo from "../components/ForsideInfo.astro";
 import Knap from "../components/Knap.astro";
 import H2 from "../components/H2.astro";
 
-const url = "https://ovfqkqxmthqfabnvnndq.supabase.co/rest/v1/byhaven?id=in.(1,2,3)&select=*";
+const url = "https://ovfqkqxmthqfabnvnndq.supabase.co/rest/v1/byhaven?id=in.(1,2,3,4)&select=*";
 const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92ZnFrcXhtdGhxZmFibnZubmRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY2OTQwNjAsImV4cCI6MjA2MjI3MDA2MH0.QGBHGl0rC79t_ySosixZ13L1Ukt5i3JvPwZaUEnMVvM";
 
 const options = {
@@ -22,7 +22,7 @@ let events = [];
 const res = await fetch(url, options);
 const data = await res.json();
 
-events = data.slice(0, 3);
+events = data.slice(0, 4);
 ---
 
 <ForsideLayout>
@@ -118,6 +118,12 @@ events = data.slice(0, 3);
     }
 
     .madbar .desktop-only {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .madbar .desktop-only {
       margin: 0 0 1rem 0;
     }
     .event-grid {
@@ -178,9 +184,6 @@ events = data.slice(0, 3);
       display: flex;
       gap: 1rem;
       margin-top: 1rem;
-    }
-
-    .events {
     }
   }
 </style>
