@@ -13,6 +13,15 @@
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
+
+    <div class="menu" id="menu">
+      <ul>
+        <li><a href="/musik">Program</a></li>
+        <li><a href="/mad">Mad</a></li>
+        <li><a href="/bar">Bar</a></li>
+        <li><a href="/omos">Om os</a></li>
+      </ul>
+    </div>
   </nav>
 </header>
 
@@ -37,7 +46,23 @@
 </script>
 
 <style>
-  /* Burger-knap styling (kun synlig på mobil) */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.9rem;
+  }
+  .menu {
+    display: none;
+  }
+
+  .logo a {
+    padding: 20px;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--black);
+  }
+
   .burger {
     display: flex;
     flex-direction: column;
@@ -58,7 +83,6 @@
     transition: 0.3s;
   }
 
-  /* Overlay container (skjult som standard) */
   .overlay {
     height: 100%;
     width: 0;
@@ -71,7 +95,6 @@
     z-index: 10;
   }
 
-  /* Luk-knap i hjørnet */
   .closebtn {
     position: absolute;
     top: 20px;
@@ -82,7 +105,6 @@
     cursor: pointer;
   }
 
-  /* Link-indhold i overlay */
   .overlay-content {
     position: relative;
     top: 30%;
@@ -103,16 +125,38 @@
   }
 
   .overlay-content a:hover {
-    color: var(--accent-color, #ff4081); /* eller en fast farve */
+    color: var(--red);
   }
 
-  /* Skjul overlay og burger på større skærme */
   @media screen and (min-width: 768px) {
-    .overlay {
+    .burger {
       display: none;
     }
+    .menu {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
 
-    .burger {
+    .menu ul {
+      display: flex;
+      list-style: none;
+      gap: 2.7rem;
+      margin: 0;
+      padding: 0 2rem;
+    }
+
+    .menu ul li a {
+      font-family: "Work Sans", sans-serif;
+      font-size: 1rem;
+      text-decoration: none;
+      color: black;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: color 0.2s ease;
+    }
+
+    .overlay {
       display: none;
     }
   }
