@@ -7,7 +7,7 @@ import "../style/global.css";
   <div>
     <div>
       <h3>ÅBNINGSTIDER</h3>
-      <p>Byhaven åbner igen den 25. april</p>
+      <p>Byhaven åbner igen den 25. april <br> - som altid fri entré</p>
       <p>Byhaven åbner kl. 15.00 og koncerterne starter kl. 19.00.</p>
     </div>
     <div class="icons">
@@ -29,8 +29,8 @@ import "../style/global.css";
     </div>
   </div>
   <div class="logos">
-    <img class="killerkebab" src="/killerkebab.svg" alt="killerkebab" />
-    <img class="brooklyn" src="/brooklyn.svg" alt="brooklyn" />
+    <img class="killerkebab" src="/killerkebabgro.png" alt="killerkebab" />
+    <img class="brooklyn" src="/bbny.png" alt="brooklyn" />
   </div>
 </div>
 
@@ -57,24 +57,28 @@ import "../style/global.css";
     padding-bottom: 1rem;
   }
 
-  /* .logos {
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-    position: absolute;
-    left: 18.5rem;
-    top: 18rem;
-  } */
-  .logos img {
-    width: 60px;
-    height: auto;
-  }
+  .killerkebab {
+  width: 50px;
+}
+
+.brooklyn {
+  width: 95px; 
+}
+
   .icons img {
     width: 26px;
     height: auto;
-  }
+  } 
 
   @media (min-width: 600px) {
+.killerkebab {
+  width: 70px;
+}
+
+.brooklyn {
+  width: 120px; 
+}
+
     .footer {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -83,15 +87,18 @@ import "../style/global.css";
     .logos {
       grid-column: 4/5;
       grid-row: 1;
+      padding-top: 4rem;
     }
 
     .icons img {
       width: 30px;
       height: auto;
     }
-    .logos img {
-      width: 80px;
-      height: auto;
-    }
+
+    h2 {
+    padding-bottom: 2rem;
+    align-content: center;
+    padding-left: 1rem;
+  }
   }
 </style>
