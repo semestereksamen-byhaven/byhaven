@@ -79,35 +79,9 @@ import Headline from "../components/Headline.astro";
 </Layout>
 
 <style>
-  .blue-box {
-    position: absolute;
-    top: 90%;
-    left: 0;
-    width: 100vw;
-    height: 510px;
-    background-color: var(--light_blue);
-    z-index: -1;
-  }
-
-  .menu {
-    background-color: var(--white);
-    padding: 2rem 2rem;
-    max-width: 600px;
-    margin-bottom: 4rem;
-  }
-
   p {
     margin-bottom: 1rem;
   }
-
-  .vin {
-    font-weight: bold;
-    font-size: 0.95rem;
-    padding-top: 1.2rem;
-    padding-left: 0;
-    padding-bottom: 1rem;
-  }
-
   ul {
     list-style: none;
     padding-left: 0;
@@ -125,6 +99,30 @@ import Headline from "../components/Headline.astro";
     font-size: 17px;
     line-height: 1.8rem;
     margin-top: 1.5rem;
+  }
+  .blue-box {
+    position: absolute;
+    top: 114%;
+    left: 0;
+    width: 100vw;
+    height: 510px;
+    background-color: var(--light_blue);
+    z-index: -1;
+  }
+
+  .menu {
+    background-color: var(--white);
+    padding: 2rem 2rem;
+    max-width: 600px;
+    margin-bottom: 4rem;
+  }
+
+  .vin {
+    font-weight: bold;
+    font-size: 0.95rem;
+    padding-top: 1.2rem;
+    padding-left: 0;
+    padding-bottom: 1rem;
   }
 
   .image-wrapper {
@@ -147,8 +145,10 @@ import Headline from "../components/Headline.astro";
     transform: rotate(-18deg);
   }
 
-  /* Web layout */
   @media (min-width: 900px) {
+    h3 {
+      margin-top: 0;
+    }
     .blue-box {
       top: 96%;
       left: 0;
@@ -174,16 +174,11 @@ import Headline from "../components/Headline.astro";
       max-height: none;
     }
 
-    h3 {
-      margin-top: 0;
-    }
     .menu {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-column: 1;
       grid-row: 3;
-      background-color: var(--white);
-      padding: 2rem 2rem;
       max-width: 100%;
       margin-bottom: 2rem;
     }
@@ -235,8 +230,8 @@ import Headline from "../components/Headline.astro";
       color: var(--white);
       transform: rotate(-15deg) translate(-10px, 5px);
     }
-    .wrapper{
-        padding-bottom: 5rem;
+    .wrapper {
+      padding-bottom: 5rem;
     }
   }
 </style>

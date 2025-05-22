@@ -5,34 +5,30 @@ import "../style/global.css";
 <div class="footer">
   <h2 class="logo">Byhaven</h2>
 
- 
-    <div class="boks">
-      <h3>ÅBNINGSTIDER</h3>
-      <p>Byhaven åbner igen den 25. april <br> - som altid fri entré</p>
-      <p>Byhaven åbner kl. 15.00 og koncerterne starter kl. 19.00.</p>
-    </div>
+  <div class="boks">
+    <h3>ÅBNINGSTIDER</h3>
+    <p>Byhaven åbner igen den 25. april <br /> - som altid fri entré</p>
+    <p>Byhaven åbner kl. 15.00 og koncerterne starter kl. 19.00.</p>
+  </div>
 
-   <div class="kontakt boks">
-      <h3>KONTAKT</h3>
-      <p>info@pumpehuset.dk</p>
-    </div>
- 
+  <div class="kontakt boks">
+    <h3>KONTAKT</h3>
+    <p>info@pumpehuset.dk</p>
+  </div>
 
- 
-    <div class="boks">
-      <h3>ADRESSE</h3>
-      <p>Studiestræde 52</p>
-      <p>1554 København V</p>
-    </div>
-     <div class="icons boks">
-      <h3>FØLG MED HER:</h3> 
-      <div class="social-icons">
+  <div class="boks">
+    <h3>ADRESSE</h3>
+    <p>Studiestræde 52</p>
+    <p>1554 København V</p>
+  </div>
+  <div class="icons boks">
+    <h3>FØLG MED HER:</h3>
+    <div class="social-icons">
       <a class="instagram" href="https://www.instagram.com/byhavencopenhagen"><img src="/instagram.svg" alt="Instagram" /></a>
       <a class="facebook" href="https://www.facebook.com/byhavenpumpehuset"><img src="/facebook.svg" alt="Facebook" /></a>
       <a class="tiktok" href="https://www.tiktok.com/@byhavencopenhagen?_t=ZN-8wJgjcTP2Mo&_r=1"><img src="/tiktok.svg" alt="TikTok" /></a>
-      </div>
     </div>
-
+  </div>
 
   <div class="logos">
     <img class="killerkebab" src="/killerkebabgro.png" alt="killerkebab" />
@@ -43,7 +39,6 @@ import "../style/global.css";
 <style>
   .footer {
     background-color: var(--footer);
-    color: var(--black);
     padding: 20px;
     padding-top: 4rem;
   }
@@ -54,52 +49,42 @@ import "../style/global.css";
     padding-bottom: 2rem;
   }
 
-  h3 {
-    font-family: "Work Sans", sans-serif;
-    color: var(--black);
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 1.8rem;
-    padding-bottom: 1rem;
+  .killerkebab {
+    width: 50px;
   }
 
-  .killerkebab {
-  width: 50px;
-}
-
-.brooklyn {
-  width: 95px; 
-}
+  .brooklyn {
+    width: 95px;
+  }
 
   .icons img {
     width: 26px;
     height: auto;
-  } 
+  }
 
-.social-icons {
-  display: flex;
-  gap: 20px;
-  padding-bottom: 0;
-}
+  .social-icons {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 0;
+  }
 
-.logos {
-  display: flex;
-  gap: 2rem;
-}
-
+  .logos {
+    display: flex;
+    gap: 2rem;
+  }
 
   @media (min-width: 600px) {
-.killerkebab {
-  width: 67.5px;
-    height: 119.5px;
-  object-fit: contain;
-}
+    .killerkebab {
+      width: 67.5px;
+      height: 119.5px;
+      object-fit: contain;
+    }
 
-.brooklyn {
-    width: 120px;
-    height: 125px;
-  object-fit: contain;
-}
+    .brooklyn {
+      width: 120px;
+      height: 125px;
+      object-fit: contain;
+    }
 
     .footer {
       display: grid;
@@ -107,19 +92,19 @@ import "../style/global.css";
       grid-template-rows: 1fr 1fr;
     }
 
-     .kontakt {
-    grid-column: 3;
-    grid-row: 2;
-  }
+    .kontakt {
+      grid-column: 3;
+      grid-row: 2;
+    }
 
-  .boks {
-    align-items: center;
-  }
+    .boks {
+      align-items: center;
+    }
 
-  .icons {
-    grid-column: 2;
-    grid-row: 2;
-  }
+    .icons {
+      grid-column: 2;
+      grid-row: 2;
+    }
 
     .logos {
       grid-column: 4/5;
@@ -135,8 +120,7 @@ import "../style/global.css";
     }
 
     h2 {
-    padding-left: 1rem;
-  }
-
+      padding-left: 1rem;
+    }
   }
 </style>

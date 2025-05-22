@@ -127,19 +127,24 @@ import Headline from "../components/Headline.astro";
     transform: rotate(-18deg);
   }
 
-  /* Web layout */
   @media (min-width: 1000px) {
+    h3 {
+      margin-top: 0;
+    }
+
+    h4 {
+      margin-top: 0rem;
+    }
+    p {
+      padding: 0rem;
+    }
     .red-box {
-      top: 70%;
+      top: 58%;
       left: 0;
       width: 100vw;
       height: 700px;
       background-color: var(--red);
       z-index: -1;
-    }
-
-    p {
-      padding: 0rem;
     }
 
     .mad {
@@ -154,18 +159,12 @@ import Headline from "../components/Headline.astro";
     .menu {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-column: 1;
-      grid-row: 3;
       background-color: var(--white);
-      padding: 2rem 2rem;
-      max-width: 100%;
-      padding-bottom: 5rem;
       margin-top: -4rem;
       gap: 1.5rem;
     }
 
     /* Titel går på tværs */
-
     .menu h2 {
       grid-column: 1 / -1;
       margin-bottom: 0rem;
@@ -199,19 +198,6 @@ import Headline from "../components/Headline.astro";
       line-height: 1;
       color: var(--white);
       transform: rotate(-28deg);
-    }
-
-    h3 {
-      margin-top: 0;
-    }
-
-    h4 {
-      font-family: "Work Sans", sans-serif;
-      color: var(--black);
-      font-weight: 700;
-      font-size: 17px;
-      line-height: 1.8rem;
-      margin-top: 0rem;
     }
   }
 </style>

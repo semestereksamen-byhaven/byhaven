@@ -26,7 +26,6 @@ events = data.slice(0, 4);
 ---
 
 <ForsideLayout>
-  <HeroSection />
   <div class="events">
     <H2 title="KOMMENDE EVENTS " />
     <Knap text="Se events" href="/musik" variant="default" />
@@ -98,13 +97,11 @@ events = data.slice(0, 4);
     margin: 0 auto;
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: 900px) {
     .section {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
       align-items: center;
-      margin-bottom: 4rem;
       gap: 13rem;
       margin-bottom: 5rem;
     }
@@ -112,7 +109,6 @@ events = data.slice(0, 4);
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 40px;
-      align-content: center;
     }
 
     .buttons {
@@ -141,9 +137,6 @@ events = data.slice(0, 4);
     /* MAD OG BAR */
     .madbar .desktop-only {
       margin: 0 0 1rem 0;
-    }
-    .madbar .image {
-      grid-column: 2 / 3;
     }
 
     .madbar .text {
