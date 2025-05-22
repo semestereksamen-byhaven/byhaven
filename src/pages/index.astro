@@ -21,7 +21,7 @@ let events = [];
 
 const res = await fetch(url, options);
 const data = await res.json();
-
+/* Gør at vi kun henter de 4 første cards*/
 events = data.slice(0, 4);
 ---
 
@@ -40,10 +40,11 @@ events = data.slice(0, 4);
 
   <section class="section omos">
     <div class="image">
-      <h2>OM OS</h2>
+      <h2 class="omosbar-heading mobile-only">OM OS</h2>
       <img src="omos.webp" alt="Byhaven skilt og publikum" />
     </div>
     <div class="text">
+      <h2 class="omos-heading desktop-only">OM OS</h2>
       <h3>En oase i hjertet af København</h3>
       <p>Byhaven er en oase i hjertet af det travle København. Hver sommer genåbner vi Byhaven fra april-september. Her kan du nyde Byhaven fra 15 til sent – og der er altid fri entré.</p>
       <p>Vi sætter en dyd i at dykke ned i musikkundergrunden og finde netop den musik, vi synes bør være soundtracket til din sommer.</p>
@@ -58,7 +59,7 @@ events = data.slice(0, 4);
     </div>
     <div class="text">
       <h2 class="madbar-heading desktop-only">MAD & BAR</h2>
-      <h3>Alt det ganen begærer.</h3>
+      <h3>Alt det ganen begærer</h3>
       <p>I år løfter vi madoplevelsen i Byhaven – Killer Kebab rykker ind og serverer sprøde, saftige og smagfulde favoritter hele sæsonen! Glæd jer til streetfood-stemning og masser af god energi!</p>
       <p>Baren i Byhaven er spækket med alt det lækre, som ganen begærer. Brooklyn Brewery har fyldt hanerne og køleskabene med lækre øl, så om du er til IPA, pilsnere eller sour, har Brooklyn din ryg – også hvis det skal være alkoholfrit.</p>
       <div class="buttons">
@@ -75,10 +76,6 @@ events = data.slice(0, 4);
     margin-bottom: 2.5rem;
     margin-top: 2.5rem;
   }
-
-  .section.madbar .text h2 {
-    padding-left: 0;
-  }
   img {
     width: 100%;
   }
@@ -94,10 +91,6 @@ events = data.slice(0, 4);
     z-index: 2;
   }
 
-  .madbar .image {
-    position: relative;
-  }
-
   .events {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -106,8 +99,34 @@ events = data.slice(0, 4);
   }
 
   @media (min-width: 600px) {
-    .madbar-heading {
-      display: none;
+    .section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 4rem;
+      gap: 13rem;
+      margin-bottom: 5rem;
+    }
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      align-content: center;
+    }
+    .events {
+      margin-top: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .image img {
+      width: 100%;
+      height: auto;
     }
     .mobile-only {
       display: none;
@@ -117,46 +136,16 @@ events = data.slice(0, 4);
       display: block;
     }
 
-    .madbar .desktop-only {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .text {
+      grid-column: 2 / 3;
+      max-width: 450px;
+      align-self: self-start;
     }
 
+    /* MAD OG BAR */
     .madbar .desktop-only {
       margin: 0 0 1rem 0;
     }
-    .event-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      align-content: center;
-    }
-    .section {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      align-items: center;
-      margin-bottom: 4rem;
-      position: relative;
-      gap: 13rem;
-      margin-bottom: 5rem;
-    }
-
-    .omos h2 {
-      grid-column: 1 / -1;
-      margin-bottom: 1rem;
-    }
-
-    .omos .image {
-      grid-column: 1 / 2;
-    }
-
-    .omos .text {
-      grid-column: 2 / 3;
-      max-width: 450px;
-    }
-
     .madbar .image {
       grid-column: 2 / 3;
     }
@@ -173,17 +162,16 @@ events = data.slice(0, 4);
       grid-row: 1;
       align-self: start;
       margin: 0;
+      margin-bottom: 1rem;
     }
 
-    .image img {
-      width: 100%;
-      height: auto;
+    /* OM OS */
+    .omos h2 {
+      margin-bottom: 1rem;
     }
 
-    .buttons {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
+    .omos .image {
+      grid-column: 1 / 2;
     }
   }
 </style>
