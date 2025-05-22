@@ -53,7 +53,6 @@ const { artist } = Astro.props;
   .artist-layout {
     display: flex;
     flex-direction: column-reverse;
-
     gap: 2rem;
   }
 
@@ -64,19 +63,24 @@ const { artist } = Astro.props;
     display: block;
   }
 
-  /* Grøn boks */
   .green-box {
-    background-color: #7c7a65;
+    background-color: var(--kunstner);
     width: 100vw;
     height: 30rem;
     position: absolute;
-    top: 50%;
+    top: 57%;
     left: 0;
     z-index: -1;
   }
+   .artist-page {
+      margin-bottom: 4rem;
+    }
 
   /* Web layout – to kolonner som i om os */
   @media (min-width: 900px) {
+    .green-box {
+    top: 53%;
+  }
     .artist-title {
       text-align: left;
     }
@@ -101,6 +105,10 @@ const { artist } = Astro.props;
     .event-image {
       order: 1;
       padding-bottom: 0;
+    }
+
+    .artist-page {
+      padding-bottom: 5rem;
     }
   }
 </style>

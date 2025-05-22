@@ -10,6 +10,8 @@
   --yellow: #c99b3f;
   --green: #305a2f;
   --red: #b95a60;
+  --genre: #e0e0e0;
+  --kunstner: #7c7a65;
 }
 * {
   margin: 0;
@@ -99,7 +101,6 @@ body {
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
-    margin-top: 1.8rem;
   }
 
   h2 {

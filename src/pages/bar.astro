@@ -7,7 +7,7 @@ import Headline from "../components/Headline.astro";
   <Headline />
   <Headline title="BAREN I BYHAVEN" />
 
-  <div class="custom-blue-box"></div>
+  <div class="blue-box"></div>
 
   <div class="bar">
     <div class="bar-text">
@@ -79,7 +79,7 @@ import Headline from "../components/Headline.astro";
 </Layout>
 
 <style>
-  .custom-blue-box {
+  .blue-box {
     position: absolute;
     top: 90%;
     left: 0;
@@ -149,8 +149,8 @@ import Headline from "../components/Headline.astro";
 
   /* Web layout */
   @media (min-width: 900px) {
-    .custom-blue-box {
-      top: 90%;
+    .blue-box {
+      top: 96%;
       left: 0;
       width: 100vw;
       height: 600px;
@@ -234,6 +234,9 @@ import Headline from "../components/Headline.astro";
       line-height: 1;
       color: var(--white);
       transform: rotate(-15deg) translate(-10px, 5px);
+    }
+    .wrapper{
+        padding-bottom: 5rem;
     }
   }
 </style>
