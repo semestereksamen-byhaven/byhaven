@@ -38,7 +38,7 @@ let formattedDate = `${date}. ${month} 2025`;
     font-weight: 700;
   }
   .event-card {
-    background-color: white;
+    background-color: var(--white);
     width: fit-content;
     overflow: hidden;
     display: flex;
@@ -61,7 +61,7 @@ let formattedDate = `${date}. ${month} 2025`;
   .event-genre {
     display: inline-block;
     background-color: #e0e0e0;
-    color: black;
+    color: var(--black);
     padding: 5px 15px;
     margin-bottom: 12px;
     width: fit-content;
@@ -81,13 +81,18 @@ let formattedDate = `${date}. ${month} 2025`;
 
   .event-button {
     padding: 1px 10px;
-    border: 1px solid black;
-    background: none;
+    border: 1px solid var(--black);
     cursor: pointer;
     width: fit-content;
     align-self: flex-end;
     text-decoration: none;
   }
+
+  .event-button:hover {
+    background-color: var(--overskrift);
+    color: var(--white);
+  }
+
   .event-content {
     display: flex;
     flex-direction: column;
@@ -107,7 +112,7 @@ let formattedDate = `${date}. ${month} 2025`;
       text-align: center;
     }
     .event-card {
-      background-color: white;
+      background-color: var(--white);
       /* width: 320px; */
       overflow: hidden;
       display: flex;
@@ -130,7 +135,7 @@ let formattedDate = `${date}. ${month} 2025`;
     .event-genre {
       display: inline-block;
       background-color: #e0e0e0;
-      color: black;
+      color: var(--black);
       font-size: 0.9em;
       padding: 5px 15px;
       margin-bottom: 12px;
@@ -145,7 +150,7 @@ let formattedDate = `${date}. ${month} 2025`;
     }
 
     .event-button {
-      border: 1px solid black;
+      border: 1px solid var(--black);
       background: none;
       cursor: pointer;
       width: fit-content;
