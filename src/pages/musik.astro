@@ -144,26 +144,29 @@ const data = await res.json();
   }
 
   @media (min-width: 925px) {
+    p {
+      text-align: center;
+      line-height: 1.5rem;
+      padding-bottom: 0.5rem;
+      max-width: 70%;
+      margin: 0 auto;
+    }
     .knapper {
       display: flex;
       justify-content: center;
       gap: 0.5rem;
       margin-top: 2.5rem;
-      flex-wrap: nowrap; /* sikrer én linje */
       padding: 0 1rem;
-      overflow-x: auto; /* fallback hvis pladsen slipper op */
     }
 
     .tab {
       flex: 1 1 0;
-      min-width: 0;
       padding: 1rem 2rem;
       text-align: center;
       font-family: "Tuffy", sans-serif;
       color: var(--black);
       font-size: clamp(0.7rem, 1vw + 0.5rem, 1rem); /* skalerer font */
       font-weight: 600;
-      white-space: nowrap; /* undgå at knapper bryder i to linjer */
     }
     .dropdown-nav {
       display: none;
@@ -174,15 +177,6 @@ const data = await res.json();
       padding-right: 6rem;
       padding-bottom: 5rem;
     }
-    
-    p {
-    text-align: center;
-  line-height: 1.5rem;
-  padding-bottom: 0.5rem;
-  max-width: 70%;
-  margin: 0 auto;
-  }
-
   }
 </style>
 
