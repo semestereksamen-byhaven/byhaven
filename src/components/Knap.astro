@@ -16,29 +16,31 @@ const { text = "Klik her", href = "#", variant = "default" } = Astro.props;
 
 <style>
   .knap {
-    display: inline-block;
-
-    background-color: white;
-    color: #000000;
-    padding: 0.2em 2em;
-
     background-color: var(--white);
     color: var(--black);
-    padding: 0.6rem 3rem;
-
+    padding: 0.4rem 1.6rem;
     text-decoration: none;
     font-family: "tuffy", sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     cursor: pointer;
     text-align: center;
     transition: all 0.3s ease;
     border-radius: 4px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  @media (min-width: 600px) {
+    .knap {
+      display: inline-block;
+      background-color: var(--white);
+      color: var(--black);
+
+      padding: 0.6rem 3rem;
+    }
   }
 
   /* Fælles hover for default */
   .knap.default:hover {
-    background-color: #42474b;
-    color: #ffffff;
+    background-color: var(--overskrift);
+    color: var(--white);
   }
 </style>
