@@ -2,7 +2,6 @@
 //@ts-nocheck
 import ForsideLayout from "../layouts/ForsideLayout.astro";
 import Footer from "../components/Footer.astro";
-import HeroSection from "../components/HeroSection.astro";
 import MusikCard from "../components/MusikCard.astro";
 import ForsideInfo from "../components/ForsideInfo.astro";
 import Knap from "../components/Knap.astro";
@@ -26,7 +25,6 @@ events = data.slice(0, 4);
 ---
 
 <ForsideLayout>
-  <HeroSection />
   <div class="events">
     <H2 title="KOMMENDE EVENTS " />
     <Knap text="Se events" href="/musik" variant="default" />

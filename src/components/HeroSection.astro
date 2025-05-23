@@ -1,0 +1,26 @@
+---
+
+---
+
+<section class="hero-wrapper">
+  <video class="hero-video" src="herovideo_byhaven.mp4" autoplay muted loop playsinline></video>
+</section>
+
+<style>
+  .hero-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* eller en anden ønsket højde */
+    overflow: hidden;
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+</style>
