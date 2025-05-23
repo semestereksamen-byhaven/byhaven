@@ -4,14 +4,16 @@
 
 <section class="hero-wrapper">
   <video class="hero-video" src="herovideo_byhaven.mp4" autoplay muted loop playsinline></video>
+  <p class="hero-address">Studiestræde 52 · 1554 København V</p>
 </section>
 
 <style>
   .hero-wrapper {
     position: relative;
     width: 100%;
-    height: 100vh; /* eller en anden ønsket højde */
+    height: 100vh; /* Eller tilpas til din video */
     overflow: hidden;
+    margin-bottom: 3rem;
   }
 
   .hero-video {
@@ -22,5 +24,17 @@
     height: 100%;
     object-fit: cover;
     z-index: 1;
+  }
+
+  .hero-address {
+    text-align: center;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--white);
+    font-size: 1.4rem;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6); /* Så teksten står tydeligt på lys video */
   }
 </style>
