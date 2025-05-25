@@ -31,7 +31,9 @@ const { artist } = Astro.props;
 <Layout>
   <section class="artist-page">
     <div class="green-box"></div>
-
+    <a href={`/musik#${artist.Month.trim().toLowerCase()}`} class="back-button">
+      <img src="/tilbage.svg" alt="Tilbage" />
+    </a>
     <h1 class="artist-title">{artist.Navn}</h1>
     <div class="artist-layout">
       <div class="kolonne_1">
@@ -50,6 +52,24 @@ const { artist } = Astro.props;
 </Layout>
 
 <style>
+  .back-button {
+    display: inline-block;
+    padding: 1rem;
+    position: absolute;
+    top: 3rem;
+    left: 0.5rem;
+    z-index: 10;
+  }
+
+  .back-button img {
+    width: 30px;
+    height: auto;
+    transition: transform 0.2s ease;
+  }
+
+  .back-button:hover img {
+    transform: translateX(-5px);
+  }
   .artist-layout {
     display: flex;
     flex-direction: column-reverse;
@@ -72,15 +92,24 @@ const { artist } = Astro.props;
     left: 0;
     z-index: -1;
   }
-   .artist-page {
-      margin-bottom: 4rem;
-    }
+  .artist-page {
+    margin-bottom: 4rem;
+  }
 
   /* Web layout – to kolonner som i om os */
   @media (min-width: 900px) {
+    .back-button {
+      display: inline-block;
+      padding: 1rem;
+      position: absolute;
+      top: 3rem;
+      left: 3.5rem;
+      z-index: 10;
+    }
+
     .green-box {
-    top: 53%;
-  }
+      top: 53%;
+    }
     .artist-title {
       text-align: left;
     }
