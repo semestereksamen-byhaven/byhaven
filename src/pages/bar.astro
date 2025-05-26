@@ -130,7 +130,15 @@ import Headline from "../components/Headline.astro";
     padding-bottom: 1rem;
   }
 
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
   .image-wrapper {
+    position: relative;
     flex: 1;
     margin-top: 0;
     display: flex;
@@ -139,18 +147,50 @@ import Headline from "../components/Headline.astro";
   }
 
   .overlay {
+    position: absolute;
+    bottom: -13%;
+    left: 51.5%;
+    transform: translateX(-50%) rotate(-18deg);
     font-family: "Reenie Beanie", cursive;
     font-weight: 400;
-    position: absolute;
-    bottom: -23%;
-    left: 49%;
-    font-size: 4rem;
-    line-height: 1;
+    font-size: clamp(4rem, 6vw, 6rem);
     color: var(--white);
-    transform: rotate(-18deg);
+    line-height: 1;
+    pointer-events: none;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 610px) {
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .image-wrapper {
+      position: relative;
+      flex: 1;
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: -9.5%;
+      left: 51.5%;
+      transform: translateX(-50%) rotate(-18deg);
+      font-family: "Reenie Beanie", cursive;
+      font-weight: 400;
+      font-size: clamp(5rem, 6vw, 6rem);
+      color: var(--white);
+      line-height: 1;
+      pointer-events: none;
+    }
+  }
+
+  @media (min-width: 1010px) {
     h3 {
       margin-top: 0;
     }
@@ -162,17 +202,8 @@ import Headline from "../components/Headline.astro";
     .bar {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto auto;
-      align-items: start;
-      margin: 0 auto;
-      column-gap: 7rem;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      max-height: none;
+      grid-template-rows: auto auto auto auto;
+      column-gap: 3rem;
     }
 
     .menu {
@@ -208,7 +239,15 @@ import Headline from "../components/Headline.astro";
     .bar-image {
       grid-column: 2;
       grid-row: 1 / span 3;
+    }
+
+    .image-wrapper {
       position: relative;
+      flex: 1;
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
     }
 
     .image-wrapper img {
@@ -217,15 +256,28 @@ import Headline from "../components/Headline.astro";
       display: block;
       object-fit: cover;
     }
-
     .overlay {
-      bottom: -7%;
-      left: 30%;
-      font-size: 6rem;
-      transform: rotate(-15deg) translate(-10px, 5px);
+      position: absolute;
+      bottom: -15%;
+      left: 68%;
+      transform: translateX(-50%) rotate(-18deg);
+      font-family: "Reenie Beanie", cursive;
+      font-weight: 400;
+      font-size: clamp(2rem, 6vw, 6rem);
+      color: var(--white);
+      line-height: 1;
+      pointer-events: none;
     }
     .wrapper {
       padding-bottom: 5rem;
+      grid-column: 1;
+      grid-row: 3/5;
+    }
+  }
+
+  @media (min-width: 1220px) {
+    .bar {
+      column-gap: 6rem;
     }
   }
 </style>
