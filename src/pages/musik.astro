@@ -18,7 +18,11 @@ const options = {
 const res = await fetch(url, options);
 const data = await res.json();
 
-data.sort((a, b) => new Date(a.Dato) - new Date(b.Dato));
+data.sort((a, b) => {
+  const aDag = parseInt(a.Dato.slice(8));
+  const bDag = parseInt(b.Dato.slice(8));
+  return aDag - bDag;
+});
 ---
 
 <Layout>
@@ -148,9 +152,6 @@ data.sort((a, b) => new Date(a.Dato) - new Date(b.Dato));
 
   @media (min-width: 925px) {
     p {
-      text-align: center;
-      line-height: 1.5rem;
-      padding-bottom: 0.5rem;
       max-width: 70%;
       margin: 0 auto;
     }
