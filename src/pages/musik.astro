@@ -250,18 +250,18 @@ data.sort((a, b) => new Date(a.Dato) - new Date(b.Dato));
     const validMonths = ["maj", "juni", "juli", "august", "september"];
 
     if (validMonths.includes(hash)) {
-      // Fjern .viser fra alle
+      /* Fjern .viser fra alle */
       document.querySelectorAll(".program").forEach((div) => {
         div.classList.remove("viser");
       });
 
-      // Vis den valgte måned
+      /* Vis den valgte måned */
       const target = document.getElementById(hash);
       if (target) {
         target.classList.add("viser");
       }
 
-      // Opdatér farve og aktiv tab
+      /* Opdatér farve og aktiv tab */
       document.querySelectorAll(".tab").forEach((div) => {
         div.classList.add("inactive");
         if (div.textContent.trim().toLowerCase() === hash) {
