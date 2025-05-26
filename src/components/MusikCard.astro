@@ -17,7 +17,7 @@ let formattedDate = `${date}. ${month} 2025`;
       <span>Kl. {data.Tid}:00</span>
     </div>
     <div class="infoboks">
-      <span>Fri entre</span>
+      <span>Fri entré</span>
       <a class="event-button" href={`/kunstner/${data.Slug}`}>Se mere</a>
     </div>
   </div>
@@ -113,5 +113,10 @@ let formattedDate = `${date}. ${month} 2025`;
     .event-content {
       padding: 1rem;
     }
+
+    .event-info {
+   justify-content: space-between;
+}
+   
   }
 </style>

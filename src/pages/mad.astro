@@ -13,7 +13,7 @@ import Headline from "../components/Headline.astro";
     <div class="mad-image">
       <div class="image-wrapper">
         <img src="killerkebab.webp" alt="kebab" />
-        <p class="overlay">One more <br /> please!!!</p>
+        <p class="overlay">ONE MORE <br /> PLEASE!!!</p>
       </div>
     </div>
 
@@ -147,94 +147,6 @@ import Headline from "../components/Headline.astro";
     .red-box {
       top: 70%;
       left: 0;
-      width: 100vw;
-      height: 600px;
-      background-color: var(--red);
-      z-index: -1;
-    }
-
-    .mad {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto auto;
-      gap: 2rem;
-      align-items: start;
-      margin: 0 auto;
-    }
-
-    .menu {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background-color: var(--white);
-      margin-top: -4rem;
-      gap: 1.5rem;
-      margin-bottom: 0rem;
-    }
-
-    .menu ul li {
-      display: flex;
-      justify-content: space-between;
-      padding-bottom: 0.4rem;
-    }
-
-    .pris {
-      margin-left: 1rem;
-    }
-    /* Titel går på tværs */
-    .menu h2 {
-      grid-column: 1 / -1;
-      margin-bottom: 0rem;
-    }
-
-    .mad-text {
-      grid-column: 1;
-      grid-row: 1;
-    }
-
-    .mad-image {
-      grid-column: 2;
-      grid-row: 1 / span 3;
-      position: relative;
-    }
-
-    .image-wrapper img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
-
-    .overlay {
-      font-family: "Reenie Beanie", cursive;
-      font-weight: 400;
-      position: absolute;
-      bottom: -10%;
-      left: 40%;
-      font-size: 6rem;
-      line-height: 1;
-      color: var(--white);
-      transform: rotate(-22deg);
-    }
-  }
-
-  @media (min-width: 1250px) {
-    h3 {
-      margin-top: 0;
-    }
-
-    h4 {
-      margin-top: 0rem;
-    }
-    p {
-      padding: 0rem;
-    }
-    .red-box {
-      top: 70%;
-      left: 0;
-      width: 100vw;
-      height: 600px;
-      background-color: var(--red);
-      z-index: -1;
     }
 
     .mad {
@@ -249,9 +161,9 @@ import Headline from "../components/Headline.astro";
     .menu {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      background-color: var(--white);
       margin-top: -4rem;
       gap: 1.5rem;
+      margin-bottom: 0rem;
     }
 
     .menu ul li {
@@ -263,6 +175,7 @@ import Headline from "../components/Headline.astro";
     .pris {
       margin-left: 1rem;
     }
+
     /* Titel går på tværs */
     .menu h2 {
       grid-column: 1 / -1;
@@ -299,4 +212,5 @@ import Headline from "../components/Headline.astro";
       transform: rotate(-22deg);
     }
   }
+
 </style>
