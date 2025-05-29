@@ -4,6 +4,11 @@
 
 <section class="hero-wrapper">
   <video class="hero-video" src="herovideo_byhaven.mp4" autoplay muted loop playsinline></video>
+
+  <div class="hero-text">
+    <h1>Byhaven</h1>
+    <p class="hero-subtitle">Live musik i hjertet af københavn</p>
+  </div>
   <p class="hero-address">Studiestræde 52 · 1554 København V</p>
 </section>
 
@@ -11,7 +16,7 @@
   .hero-wrapper {
     position: relative;
     width: 100%;
-    height: 100vh; /* Eller tilpas til din video */
+    height: 100vh;
     overflow: hidden;
     margin-bottom: 3rem;
   }
@@ -24,6 +29,33 @@
     height: 100%;
     object-fit: cover;
     z-index: 1;
+  }
+
+  .hero-text {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white);
+    padding: 0 1rem;
+  }
+
+  .hero-text h1 {
+    color: var(--kunstner);
+    font-size: clamp(2rem, 15vw, 10rem);
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .hero-subtitle {
+    font-family: "Reenie Beanie", cursive;
+    font-weight: 400;
+    font-size: clamp(1.2rem, 8vw, 3rem);
+    margin-top: 0.5rem;
+    color: var(--white);
+    line-height: 2.5rem;
   }
 
   .hero-address {

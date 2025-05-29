@@ -93,6 +93,10 @@ body {
   background-color: var(--background);
 }
 
+.menu ul li a.active {
+  text-decoration: underline;
+}
+
 @media (min-width: 900px) {
   h1 {
     font-family: "Raleway", sans-serif;

@@ -1,5 +1,5 @@
 ---
-
+const current = Astro.url.pathname;
 ---
 
 <header class="header">
@@ -16,10 +16,10 @@
 
     <div class="menu" id="menu">
       <ul>
-        <li><a href="/musik">Program</a></li>
-        <li><a href="/mad">Mad</a></li>
-        <li><a href="/bar">Bar</a></li>
-        <li><a href="/omos">Om os</a></li>
+        <li><a href="/musik" class={current === "/musik" ? "active" : ""}>Program</a></li>
+        <li><a href="/mad" class={current === "/mad" ? "active" : ""}>Mad</a></li>
+        <li><a href="/bar" class={current === "/bar" ? "active" : ""}>Bar</a></li>
+        <li><a href="/omos" class={current === "/omos" ? "active" : ""}>Om os</a></li>
       </ul>
     </div>
   </nav>
@@ -127,6 +127,11 @@
   .overlay-content a:hover {
     color: var(--red);
     text-decoration: underline;
+  }
+
+  .menu ul li a.active {
+    text-decoration: underline;
+    color: var(--black);
   }
 
   @media screen and (min-width: 768px) {
